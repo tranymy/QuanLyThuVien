@@ -4,6 +4,8 @@
  */
 package Entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author baomt
@@ -16,6 +18,12 @@ public class Sach {
     private String NXB;
     private String THELOAI;
     private String MOTA;
+    
+     private ArrayList<String> theLoai;
+    
+    public ArrayList<String> getTheLoai() {
+        return theLoai;
+    }
 
     public Sach() {
     }
@@ -67,6 +75,9 @@ public class Sach {
 
     public void setTHELOAI(String THELOAI) {
         this.THELOAI = THELOAI;
+    }
+    public void setTheLoai(ArrayList<String> theLoai) {
+        this.theLoai = theLoai;
     }
 
     public String getMOTA() {
