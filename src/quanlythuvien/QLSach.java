@@ -4,9 +4,9 @@
  */
 package quanlythuvien;
 
-import Dao.MsgBox;
+import utils.MsgBox;
 import Dao.SachDao;
-import Dao.XDate;
+import utils.XDate;
 import Entity.Sach;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -457,7 +457,7 @@ public class QLSach extends javax.swing.JDialog {
     }
 
     private void next() {
-        if (this.row < tblNhanVien.getRowCount() - 1) {
+        if (this.row < tblSach.getRowCount() - 1) {
             this.row++;
             this.edit();
         }
