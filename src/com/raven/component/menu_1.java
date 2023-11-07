@@ -43,7 +43,7 @@ public class menu_1 extends javax.swing.JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         GradientPaint g = new GradientPaint(0, 0, Color.decode("#C92127"), 0, getHeight(), Color.decode("#F8BABA"));
         g2.setPaint(g);
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 0, 0);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
         super.paintComponent(grphcs);
     }
 
