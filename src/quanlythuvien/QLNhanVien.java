@@ -4,9 +4,9 @@
  */
 package quanlythuvien;
 
-import Dao.MsgBox;
+import utils.MsgBox;
 import Dao.NhanVienDao;
-import Dao.XDate;
+import utils.XDate;
 import Entity.NhanVien;
 import java.util.List;
 import javax.swing.JOptionPane;

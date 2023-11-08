@@ -4,10 +4,11 @@
  */
 package quanlythuvien;
 
-import Dao.MsgBox;
+import utils.MsgBox;
 import Dao.SachDao;
-import Dao.XDate;
+import utils.XDate;
 import Entity.Sach;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,8 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author baomt
  */
-public class Sách extends javax.swing.JDialog {
-
+public class QLSach extends javax.swing.JDialog {
     SachDao sdao = new SachDao();
     int row = 0;
 
@@ -29,10 +29,10 @@ public class Sách extends javax.swing.JDialog {
         initComponents();
         init();
     }
-
+    
     private void init() {
         setLocationRelativeTo(null);
-
+        
         setTitle("Quản Lý nhân viên");
         this.fillTable(); // đổ dữ liệu nhân viên vào bảng
         this.updateStatus(); // cập nhật trạng thái form
@@ -216,15 +216,20 @@ public class Sách extends javax.swing.JDialog {
 
         tblSach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã Sách", "Tên Sách", "Tác Giả", "NXB", "Thể Loại", "Mô tả"
             }
         ));
+        tblSach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSachMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblSach);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -244,20 +249,60 @@ public class Sách extends javax.swing.JDialog {
         jTabbedPane1.addTab("DS", jPanel3);
 
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
         btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("<<");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("<");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText(">>");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText(">");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         btnMoi.setText("Mới");
+        btnMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoiActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("QUẢN LÝ SÁCH");
 
@@ -324,6 +369,45 @@ public class Sách extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tblSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSachMouseClicked
+        if (evt.getClickCount() == 1) {
+            this.row = tblSach.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblSachMouseClicked
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+                this.insert();
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
+        clearForm();
+    }//GEN-LAST:event_btnMoiActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
     private void fillTable() {
         DefaultTableModel model = (DefaultTableModel) tblSach.getModel();
         model.setRowCount(0);
@@ -345,58 +429,76 @@ public class Sách extends javax.swing.JDialog {
             e.printStackTrace();
         }
     }
+    
     private void insert() {
         Sach s = this.getForm();
         try {
             sdao.insert(s); // thêm mới
             this.fillTable(); // đỗ lại bảng
-            this.clearForm(); // xóa trắng form
+            this.clearForm1(); // xóa trắng form
             JOptionPane.showMessageDialog(this, "Thêm sách mới thành công!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Thêm sách mới thất bại!");
             e.printStackTrace();
-
+            
         }
     }
 
-    private void update() {
-        Sach nv = this.getForm();
-
-        try {
-            sdao.update(nv); // cập nhật
-            this.fillTable(); // đổ lại bảng
-            JOptionPane.showMessageDialog(this, "Cập nhật sách thành công!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cập nhật sách thất bại!");
-            e.printStackTrace();
-        }
-
-    }
-
-    private void delete() {
-
-        String maSach = txtMaSach.getText();
-        if (MsgBox.confirm(this, "Bạn có thực sự muốn xóa sách này không?")) {
-            try {
-                sdao.delete(maSach);
-                this.fillTable();
-                this.clearForm();
-                MsgBox.alert(this, "Xóa sách thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Xóa sách thất bại!");
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    private void clearForm() {
+//    private void update() {
+//        Sach nv = this.getForm();
+//
+//        try {
+//            sdao.update(nv); // cập nhật
+//            this.fillTable(); // đổ lại bảng
+//            JOptionPane.showMessageDialog(this, "Cập nhật sách thành công!");
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "Cập nhật sách thất bại!");
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    private void delete() {
+//
+//        String maSach = txtMaSach.getText();
+//        if (MsgBox.confirm(this, "Bạn có thực sự muốn xóa sách này không?")) {
+//            try {
+//                sdao.delete(maSach);
+//                this.fillTable();
+//                this.clearForm();
+//                MsgBox.alert(this, "Xóa sách thành công!");
+//            } catch (Exception e) {
+//                MsgBox.alert(this, "Xóa sách thất bại!");
+//                e.printStackTrace();
+//            }
+//        }
+//
+//    }
+//
+    
+     private void clearForm1() {
         Sach nv = new Sach();
         this.setForm(nv);
-        this.row = -1;
-        this.updateStatus();
-    }
 
+        this.row = -1;
+//        this.updateStatus();
+        
+        
+    }
+    private void clearForm() {
+        txtMaSach.setText(null);
+        txtTenSach.setText(null);
+        txtNXB.setText(null);
+        txtTacGia.setText(null);
+        txtMoTa.setText(null);
+        chkCT.setSelected(false);        
+        chkHai.setSelected(false);
+        chkHoatHinh.setSelected(false);
+        chkKinhDi.setSelected(false);
+        chkTieuThuyet.setSelected(false);
+        chkTimCam.setSelected(false);
+    }
+    
     private void edit() {
         try {
             String manv = (String) tblSach.getValueAt(this.row, 0);
@@ -404,74 +506,114 @@ public class Sách extends javax.swing.JDialog {
             if (nv != null) {
                 this.setForm(nv);
                 jTabbedPane1.setSelectedIndex(0);
-                this.updateStatus();
+//                this.updateStatus();
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-
-    private void setForm(Sach nv) {
-        txtMaSach.setText(nv.getMaNV());
-        txtTenSach.setText(nv.getTenNV());
-        txtTacGia.setText(XDate.toString(nv.getNGAYSINH()));
-        txtNXB.setText(nv.getSDT());
-        txt.setSelected(nv.isGIOITINH());
-        rdoNu.setSelected(!nv.isGIOITINH());
-        rdott.setSelected(nv.isVAITRO());
-        rdoNv.setSelected(!nv.isVAITRO());
-        txtEmail.setText(nv.getEMAIL());
-        txtGhiChu.setText(nv.getGHICHU());
-
-//                    s.getTenSACH(),
-//                    s.getTacGIA(),
-//                    s.getNXB(),
-//                    s.getTHELOAI(),
-//                    s.getMOTA()
+    
+    private void setForm(Sach nv) {        
+        txtMaSach.setText(nv.getMaSACH());
+        txtTenSach.setText(nv.getTenSACH());
+        txtTacGia.setText(nv.getTacGIA());
+        txtNXB.setText(nv.getNXB());
+        if (nv.getTHELOAI().equalsIgnoreCase("Pháp Luật")) {
+            chkKinhDi.setSelected(true);
+        }
+        if (nv.getTHELOAI().equalsIgnoreCase("Tình Cảm")) {
+            chkTimCam.setSelected(true);
+        }
+        if (nv.getTHELOAI().equalsIgnoreCase("Hài")) {
+            chkHai.setSelected(true);
+        }
+        if (nv.getTHELOAI().equalsIgnoreCase("Hoạt Hình")) {
+            chkHoatHinh.setSelected(true);
+        }
+        if (nv.getTHELOAI().equalsIgnoreCase("Chiến Tranh")) {
+            chkCT.setSelected(true);
+        }
+        if (nv.getTHELOAI().equalsIgnoreCase("Tiểu Thuyết")) {
+            chkTieuThuyet.setSelected(true);
+        }
+        txtMoTa.setText(nv.getMOTA());
+        
+       
     }
+//
 
-    private NhanVien getForm() {
-        NhanVien nv = new NhanVien();
-        nv.setMaNV(txtMaNV.getText());
-        nv.setTenNV(txtTenNV.getText());
-        nv.setNGAYSINH(XDate.toDate(txtNgaySinh.getText()));
-        nv.setSDT(txtSĐT.getText());
-        nv.setGIOITINH(rdoNam.isSelected());
-        nv.setVAITRO(rdoNv.isSelected());
-        nv.setEMAIL(txtEmail.getText());
-        nv.setGHICHU(txtGhiChu.getText());
+    private Sach getForm() {
+        Sach nv = new Sach();
+        nv.setMaSACH(txtMaSach.getText());
+        nv.setTenSACH(txtTenSach.getText());
+        nv.setTacGIA(txtTacGia.getText());
+        nv.setNXB(txtNXB.getText());
+         ArrayList<String> theLoai = new ArrayList();
+        if (chkCT.isSelected()) {
+            theLoai.add("Pháp luật");
+        }
+        if (chkHai.isSelected()) {
+            theLoai.add("Hài");
+        }
+        if (chkKinhDi.isSelected()) {
+            theLoai.add("Kinh dị");
+        }if (chkHoatHinh.isSelected()) {
+           theLoai.add("hoạt Hình");
+        }
+        if (chkTieuThuyet.isSelected()) {
+            theLoai.add("Tiểu thuyết");
+        }if (chkTimCam.isSelected()) {
+            theLoai.add("Tình Cảm");
+        }
+        //nv.setTHELOAI(theLoai);
+        
+        
+//        if (chkTimCam.isSelected()) {
+//            nv.setTHELOAI("Kinh DỊ");
+//        }
+//         if (chkHoatHinh.isSelected()) {
+//            nv.setTHELOAI("Kinh DỊ");
+//        }
+//        if (chkCT.isSelected()) {
+//            nv.setTHELOAI("Kinh DỊ");
+//        }
+//        if (chkTieuThuyet.isSelected()) {
+//            nv.setTHELOAI("Kinh DỊ");
+//        }
 
+        nv.setMOTA(txtMoTa.getText());
+        
         return nv;
     }
 
-    private void first() {
-        this.row = 0;
-        this.edit();
-    }
-
-    private void prev() {
-        if (this.row > 0) {
-            this.row--;
-            this.edit();
-        }
-    }
-
-    private void next() {
-        if (this.row < tblNhanVien.getRowCount() - 1) {
-            this.row++;
-            this.edit();
-        }
-    }
-
-    private void last() {
-        this.row = tblNhanVien.getRowCount() - 1;
-        this.edit();
-    }
-
+//    private void first() {
+//        this.row = 0;
+//        this.edit();
+//    }
+//
+//    private void prev() {
+//        if (this.row > 0) {
+//            this.row--;
+//            this.edit();
+//        }
+//    }
+//
+//    private void next() {
+//        if (this.row < tblSach.getRowCount() - 1) {
+//            this.row++;
+//            this.edit();
+//        }
+//    }
+//
+//    private void last() {
+//        this.row = tblNhanVien.getRowCount() - 1;
+//        this.edit();
+//    }
+//
     private void updateStatus() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
-        boolean last = (this.row == tblNhanVien.getRowCount() - 1);
+        boolean last = (this.row == tblSach.getRowCount() - 1);
         // Trạng thái form
 //        txtMaNhanVien.setEditable(!edit);
 //        btnThem.setEnabled(!edit);
@@ -483,6 +625,8 @@ public class Sách extends javax.swing.JDialog {
 //        btnPrev.setEnabled(edit && !first);
 //        btnNext.setEnabled(edit && !last);
 //        btnLast.setEnabled(edit && !last);
+       
+
     }
 
     /**
