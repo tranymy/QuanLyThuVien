@@ -36,6 +36,7 @@ public class Menu extends javax.swing.JPanel {
     public Menu() {
         initComponents();
         setOpaque(false);
+        listMenu.setOpaque(false);
 //        listMenu.setOpaque(false);
 //        listMenu.addEventSelectedMenu(new EventMenuSelected() {
 //            @Override
@@ -117,7 +118,7 @@ public class Menu extends javax.swing.JPanel {
         panelMoving = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listMenu1 = new com.raven.swing.ListMenu<>();
+        listMenu = new com.raven.swing.ListMenu<>();
 
         panelMoving.setOpaque(false);
 
@@ -139,13 +140,12 @@ public class Menu extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        listMenu1.setModel(new javax.swing.AbstractListModel<String>() {
+        listMenu.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        listMenu1.setOpaque(false);
-        jScrollPane1.setViewportView(listMenu1);
+        jScrollPane1.setViewportView(listMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,7 +215,7 @@ public class Menu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private com.raven.swing.ListMenu<String> listMenu1;
+    private com.raven.swing.ListMenu<String> listMenu;
     private javax.swing.JPanel panelMoving;
     // End of variables declaration//GEN-END:variables
 }
