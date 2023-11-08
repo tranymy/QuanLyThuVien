@@ -660,7 +660,7 @@ public class QLSach extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Sách dialog = new Sách(new javax.swing.JFrame(), true);
+                QLSach dialog = new QLSach(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
