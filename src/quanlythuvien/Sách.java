@@ -24,7 +24,7 @@ public class QLSach extends javax.swing.JDialog {
     /**
      * Creates new form NhanVien
      */
-    public Sách(java.awt.Frame parent, boolean modal) {
+    public QLSach(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         init();
