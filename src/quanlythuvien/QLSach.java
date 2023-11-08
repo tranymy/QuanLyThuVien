@@ -566,7 +566,7 @@ public class QLSach extends javax.swing.JDialog {
         }if (chkTimCam.isSelected()) {
             theLoai.add("Tình Cảm");
         }
-        nv.setTHELOAI(theLoai);
+        //nv.setTHELOAI(theLoai);
         
         
 //        if (chkTimCam.isSelected()) {
