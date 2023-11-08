@@ -13,10 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author baomt
- */
+
 public class QLSach extends javax.swing.JDialog {
     
     SachDao sdao = new SachDao();
