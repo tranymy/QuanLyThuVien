@@ -93,11 +93,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="textField1" min="-2" pref="361" max="-2" attributes="0"/>
+                                  <Component id="txtTenDangNhap" min="-2" pref="361" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="passwordField1" min="-2" pref="355" max="-2" attributes="0"/>
+                                      <Component id="txtMatKhau" min="-2" pref="355" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -113,11 +113,11 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textField1" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="txtTenDangNhap" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="passwordField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMatKhau" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnDangNhap" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -129,12 +129,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="button.textfield.TextField" name="textField1">
+            <Component class="button.textfield.TextField" name="txtTenDangNhap">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTenDangNhapActionPerformed"/>
               </Events>
             </Component>
-            <Component class="button.JPassword.PasswordField" name="passwordField1">
+            <Component class="button.JPassword.PasswordField" name="txtMatKhau">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
