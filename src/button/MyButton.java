@@ -1,6 +1,7 @@
 package button;
 
 import java.awt.Color;
+import static java.awt.Color.white;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -63,9 +64,11 @@ public class MyButton extends JButton {
         //  Init Color
 
         setColor(Color.WHITE);
-//        colorOver = new Color(201,33,39);
-//        colorClick = new Color(201,33,39);
-//        borderColor = new Color(30, 136, 56);
+        
+        colorOver = new Color(246,84,70);
+        colorClick = new Color(201,33,39);
+        borderColor = new Color(217,99,103);
+     
         setContentAreaFilled(false);
         //  Add event mouse
         addMouseListener(new MouseAdapter() {
@@ -73,6 +76,8 @@ public class MyButton extends JButton {
             public void mouseEntered(MouseEvent me) {
                 setBackground(colorOver);
                 over = true;
+             
+               
             }
 
             @Override
