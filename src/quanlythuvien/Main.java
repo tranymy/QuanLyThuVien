@@ -48,13 +48,13 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void init() {
-              new Timer(1000, new ActionListener() {
+        new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Date now = new Date();
                 SimpleDateFormat formater = new SimpleDateFormat("hh:mm:ss a");
                 String text = formater.format(now);
-                
+
                 lblDongHo.setText(text);
             }
         }).start();
@@ -68,19 +68,25 @@ public class Main extends javax.swing.JFrame {
             public void menuIndexChange(int index) {
                 //  JOptionPane.showMessageDialog(null, index + "");
                 if (index == 0) {
-                    JOptionPane.showMessageDialog(rootPane, "Nhân viên.");
+                    QLNhanVien main = new QLNhanVien();
+                    main.setVisible(true);
+
                 }
                 if (index == 1) {
-                    JOptionPane.showMessageDialog(rootPane, "Sách.");
+                    QLSach main = new QLSach();
+                    main.setVisible(true);
                 }
                 if (index == 2) {
-                    JOptionPane.showMessageDialog(rootPane, "Đọc giả.");
+                    QLDocGia main = new QLDocGia();
+                    main.setVisible(true);
                 }
                 if (index == 3) {
-                    JOptionPane.showMessageDialog(rootPane, "Phiếu mượn.");
+                    QLPhieuMuon main = new QLPhieuMuon();
+                    main.setVisible(true);
                 }
                 if (index == 4) {
-                    JOptionPane.showMessageDialog(rootPane, "Tổng hợp thống kê.");
+                    ThongKe main = new ThongKe();
+                    main.setVisible(true);
                 }
             }
         });
@@ -99,6 +105,9 @@ public class Main extends javax.swing.JFrame {
         chart = new chart.Chart();
         footer = new component.menu_1();
         lblDongHo = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         header = new component.menu_1();
         jLabel1 = new javax.swing.JLabel();
@@ -130,20 +139,41 @@ public class Main extends javax.swing.JFrame {
         lblDongHo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDongHo.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Giới thiệu");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Hỗ trợ");
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("|");
+
         javax.swing.GroupLayout footerLayout = new javax.swing.GroupLayout(footer);
         footer.setLayout(footerLayout);
         footerLayout.setHorizontalGroup(
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerLayout.createSequentialGroup()
-                .addContainerGap(1141, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 980, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDongHo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(31, 31, 31))
         );
         footerLayout.setVerticalGroup(
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(footerLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblDongHo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(lblDongHo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -206,16 +236,16 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(panelBorder1Layout.createSequentialGroup()
                                         .addComponent(jButton2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton3)
-                                        .addGap(2656, 2656, 2656))))
+                                        .addGap(2656, 2656, 2656))
+                                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addComponent(slideshow1, javax.swing.GroupLayout.PREFERRED_SIZE, 973, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -245,13 +275,15 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(jButton2)
                             .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pieChart1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
-                            .addComponent(pieChart1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107))))
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
@@ -335,6 +367,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblDongHo;
