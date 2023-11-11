@@ -132,6 +132,11 @@ public class QLNhanVien extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/home-regular-24.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -502,6 +507,13 @@ public class QLNhanVien extends javax.swing.JFrame {
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+          Main main = new Main();
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments

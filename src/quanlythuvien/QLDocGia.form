@@ -231,6 +231,9 @@
                   <Image iconType="3" name="/icon/home-regular-24.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
