@@ -302,7 +302,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
+                <Property name="text" type="java.lang.String" value="H&#x1ed7; tr&#x1ee3;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">

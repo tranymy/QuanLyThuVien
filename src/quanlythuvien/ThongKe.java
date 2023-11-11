@@ -173,7 +173,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         jLabel56.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel56.setText("Giới thiệu");
+        jLabel56.setText("Hỗ trợ");
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel57.setText("|");

@@ -178,7 +178,7 @@ public class QLSach extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Giới thiệu");
+        jLabel16.setText("Hỗ trợ");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("|");
@@ -547,14 +547,14 @@ public class QLSach extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-         QLPhieuMuon main = new QLPhieuMuon();
+        QLPhieuMuon main = new QLPhieuMuon();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-          Main main = new Main();
+        Main main = new Main();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
