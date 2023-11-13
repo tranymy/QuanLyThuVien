@@ -62,7 +62,7 @@ public class SachDao extends QLThuVienDao<Sach, String> {
                 entity.setTenSACH(rs.getString("TenSACH"));
                 entity.setTacGIA(rs.getString("TacGIA"));
                 entity.setNXB(rs.getString("NXB"));
-                entity.setTHELOAI(rs.getString("THELOAI"));
+                entity.setTHELOAI(rs.getString("MaTL"));
                 entity.setMOTA(rs.getString("MOTA"));
 
                 list.add(entity);

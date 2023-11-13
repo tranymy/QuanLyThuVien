@@ -15,7 +15,7 @@ public class JdbcHelper {
     public static Connection getconnecDb() {
         try {
             String connectionUrl = "jdbc:sqlserver://localhost:1433;"
-                    + "databaseName=QUANLYTHUVIEN;user=sa;password=12345;"
+                    + "databaseName=QUANLYTHUVIEN;user=sa;password=1234567890;"
                     + "encrypt=true;trustServerCertificate=true;";
             Connection con = DriverManager.getConnection(connectionUrl);
             return con;
