@@ -189,29 +189,29 @@ public class Menu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    protected void paintComponent(Graphics grphcs) {
-        Graphics2D g2 = (Graphics2D) grphcs;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint g = new GradientPaint(0, 0, Color.decode("#C92127"), 0, getHeight(), Color.decode("#F8BABA"));
-        g2.setPaint(g);
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
-        if (selectedIndex >= 0) {
-            int menuX = 10;
-            int height = 35;
-            int width = getWidth();
-            g2.setColor(new Color(242, 242, 242));
-            g2.fillRoundRect(menuX, menuY, width, height, 35, 35);
-            Path2D.Float f = new Path2D.Float();
-            f.moveTo(width - 30, menuY);
-            f.curveTo(width - 10, menuY, width, menuY, width, menuY - 30);
-            f.lineTo(width, menuY + height + 30);
-            f.curveTo(width, menuY + height, width - 10, menuY + height, width - 30, menuY + height);
-
-            g2.fill(f);
-        }
-        super.paintComponent(grphcs);
-    }
+   // @Override
+//    protected void paintComponent(Graphics grphcs) {
+//        Graphics2D g2 = (Graphics2D) grphcs;
+//        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//        GradientPaint g = new GradientPaint(0, 0, Color.decode("#C92127"), 0, getHeight(), Color.decode("#F8BABA"));
+//        g2.setPaint(g);
+//        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+//        if (selectedIndex >= 0) {
+//            int menuX = 10;
+//            int height = 35;
+//            int width = getWidth();
+//            g2.setColor(new Color(242, 242, 242));
+//            g2.fillRoundRect(menuX, menuY, width, height, 35, 35);
+//            Path2D.Float f = new Path2D.Float();
+//            f.moveTo(width - 30, menuY);
+//            f.curveTo(width - 10, menuY, width, menuY, width, menuY - 30);
+//            f.lineTo(width, menuY + height + 30);
+//            f.curveTo(width, menuY + height, width - 10, menuY + height, width - 30, menuY + height);
+//
+//            g2.fill(f);
+//        }
+//        super.paintComponent(grphcs);
+//    }
 
     private int x;
     private int y;
