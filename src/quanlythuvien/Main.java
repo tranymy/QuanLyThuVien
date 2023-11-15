@@ -113,24 +113,19 @@ public class Main extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         header = new component.menu_1();
         jLabel1 = new javax.swing.JLabel();
-
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblDangNhap = new javax.swing.JLabel();
+        lblTaoTaiKhoan = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblquenMK = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
         menu1 = new component.Menu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         panelBorder1.setBackground(new java.awt.Color(255, 204, 204));
-        panelBorder1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         body.setLayout(new java.awt.BorderLayout());
-        panelBorder1.add(body, new org.netbeans.lib.awtextra.AbsoluteConstraints(3495, 39, -1, 657));
-        panelBorder1.add(slideshow1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 48, 973, 170));
 
         jButton1.setText(">");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +133,6 @@ public class Main extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelBorder1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
         jButton2.setText("<");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -146,9 +140,6 @@ public class Main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        panelBorder1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 240, -1, -1));
-        panelBorder1.add(pieChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 401, 280));
-        panelBorder1.add(chart, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 543, 285));
 
         lblDongHo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDongHo.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,33 +183,31 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelBorder1.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 602, -1, -1));
-
         jButton3.setText("Refresh And Clear");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        panelBorder1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tạo tài khoản");
+        header.add(jLabel1);
 
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Đăng nhập");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblDangNhap.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblDangNhap.setForeground(new java.awt.Color(255, 255, 255));
+        lblDangNhap.setText("Đăng nhập");
+        lblDangNhap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
-
             }
         });
+        header.add(lblDangNhap);
 
         lblTaoTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblTaoTaiKhoan.setText("|");
+        header.add(lblTaoTaiKhoan);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-x.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,6 +215,7 @@ public class Main extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        header.add(jLabel4);
 
         lblquenMK.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblquenMK.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,47 +225,11 @@ public class Main extends javax.swing.JFrame {
                 lblquenMKMouseClicked(evt);
             }
         });
+        header.add(lblquenMK);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel5.setText("|");
-
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-
-                .addContainerGap(835, Short.MAX_VALUE)
-                .addComponent(lblquenMK)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel3)
-
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap())
-        );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblquenMK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        header.add(jLabel5);
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -308,8 +262,8 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 1262, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(body)
                 .addContainerGap())
@@ -448,11 +402,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblDangNhap;
     private javax.swing.JLabel lblDongHo;
+    private javax.swing.JLabel lblTaoTaiKhoan;
     private javax.swing.JLabel lblquenMK;
     private component.Menu menu1;
     private swing.menu.PanelBorder panelBorder1;
