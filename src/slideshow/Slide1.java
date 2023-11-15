@@ -55,7 +55,7 @@ public class Slide1 extends javax.swing.JPanel {
         pictureBox1Layout.setHorizontalGroup(
             pictureBox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pictureBox1Layout.createSequentialGroup()
-                .addContainerGap(687, Short.MAX_VALUE)
+                .addContainerGap(694, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );

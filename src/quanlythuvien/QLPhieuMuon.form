@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -28,17 +29,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,17 +52,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="header" max="32767" attributes="0"/>
-                      <Component id="footer" alignment="1" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="menu_011" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                          <Component id="jTabbedPane1" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="header" alignment="1" max="32767" attributes="0"/>
+                      <Component id="footer" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -92,15 +89,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="QUANLIPHIEUMUON" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="94" max="32767" attributes="0"/>
+                      <Component id="lblQLSach" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblQLDocGia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblQLNhanVien" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblThongKe" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -112,15 +109,15 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="QUANLIPHIEUMUON" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblThongKe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQLNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQLDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQLSach" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -130,7 +127,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="QUANLIPHIEUMUON">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
@@ -143,8 +140,13 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; phi&#x1ebf;u m&#x1b0;&#x1ee3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUANLIPHIEUMUONMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUANLIPHIEUMUONMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUANLIPHIEUMUONMouseExited"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblQLSach">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -158,10 +160,12 @@
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; s&#xe1;ch"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLSachMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLSachMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLSachMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="lblQLNhanVien">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -175,10 +179,12 @@
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; nh&#xe2;n vi&#xea;n"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLNhanVienMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLNhanVienMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLNhanVienMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblQLDocGia">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -192,10 +198,12 @@
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; &#x111;&#x1ed9;c gi&#x1ea3;"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel4MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLDocGiaMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLDocGiaMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQLDocGiaMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="lblThongKe">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -209,7 +217,9 @@
                 <Property name="text" type="java.lang.String" value="B&#xe1;o c&#xe1;o th&#x1ed1;ng k&#xea;"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblThongKeMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblThongKeMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblThongKeMouseExited"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -224,6 +234,9 @@
                   <Image iconType="3" name="/icon/home-regular-24.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -234,9 +247,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGioiThieu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblHoTro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -252,8 +265,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblDongHo" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblGioiThieu" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblHoTro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -273,7 +286,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
+            <Component class="javax.swing.JLabel" name="lblGioiThieu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -283,8 +296,12 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGioiThieuMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblGioiThieuMouseExited"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
+            <Component class="javax.swing.JLabel" name="lblHoTro">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
@@ -294,6 +311,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#x1ed7; tr&#x1ee3;"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblHoTroMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblHoTroMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -459,32 +480,42 @@
                                   <EmptySpace min="-2" pref="391" max="-2" attributes="0"/>
                                   <Component id="txtNgayTao" min="-2" pref="270" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="19" max="32767" attributes="0"/>
-                                          <Component id="txtMaPM" min="-2" pref="259" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                                  <Component id="jLabel10" min="-2" pref="120" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                                  <Component id="rdoDaTra" min="-2" pref="64" max="-2" attributes="0"/>
-                                                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                                                  <Component id="rdoChuaTra" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="txtMaPM" min="-2" pref="259" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                                      <Component id="jLabel10" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                                      <Component id="rdoDaTra" min="-2" pref="64" max="-2" attributes="0"/>
+                                                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                                                      <Component id="rdoChuaTra" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="txtMaDocGia" min="-2" pref="270" max="-2" attributes="0"/>
+                                              <Component id="txtMaNV" min="-2" pref="260" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -494,16 +525,11 @@
                                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                           <Component id="txtNgayTra" min="-2" pref="270" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                          <Component id="lblPhieuMuon" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="txtMaDocGia" min="-2" pref="270" max="-2" attributes="0"/>
-                                      <Component id="txtMaNV" min="-2" pref="260" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
@@ -514,8 +540,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="txtMaPM" min="-2" max="-2" attributes="0"/>
@@ -531,7 +557,7 @@
                                   <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                   <Component id="txtMaNV" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtNgayTao" min="-2" max="-2" attributes="0"/>
@@ -539,6 +565,8 @@
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Component id="txtNgayTra" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblPhieuMuon" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -646,6 +674,21 @@
                 </Component>
                 <Component class="button.JPassword.PasswordField" name="txtMaDocGia">
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblPhieuMuon">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Light" size="18" style="3"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/com/raven/icon/4.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Phi&#x1ebf;u m&#x1b0;&#x1ee3;n chi ti&#x1ebf;t"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPhieuMuonMouseEntered"/>
+                    <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPhieuMuonMouseExited"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel3">
@@ -660,14 +703,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="1" pref="913" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="1" pref="810" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="362" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -686,29 +729,17 @@
                           <Color blue="cc" green="cc" red="ff" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="8" rowCount="4">
+                          <Table columnCount="6" rowCount="4">
                             <Column editable="true" title="M&#xe3; phi&#x1ebf;u m&#x1b0;&#x1ee3;n" type="java.lang.Object"/>
                             <Column editable="true" title="Ng&#xe0;y t&#x1ea1;o" type="java.lang.Object"/>
                             <Column editable="true" title="M&#xe3; nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
                             <Column editable="true" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.Object"/>
                             <Column editable="true" title="Ng&#xe0;y tr&#x1ea3;" type="java.lang.Object"/>
-                            <Column editable="true" title="M&#xe3; s&#xe1;ch" type="java.lang.Object"/>
                             <Column editable="true" title="M&#xe3; &#x111;&#x1ecd;c gi&#x1ea3;" type="java.lang.Object"/>
-                            <Column editable="true" title="Ghi ch&#xfa;" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>

@@ -18,6 +18,9 @@ import java.awt.geom.Path2D;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 import quanlythuvien.DoiMatKhau;
+import quanlythuvien.Main;
+import utils.Auth;
+import utils.MsgBox;
 
 public class Menu extends javax.swing.JPanel {
 
@@ -35,6 +38,7 @@ public class Menu extends javax.swing.JPanel {
     private EventMenu event;
 
     public Menu() {
+
         initComponents();
         setOpaque(false);
         listMenu.setOpaque(false);
@@ -98,7 +102,7 @@ public class Menu extends javax.swing.JPanel {
     }
 
     private void initData() {
-        
+
         listMenu.addItem(new Model_Menu("1", "Nhân viên", Model_Menu.MenuType.MENU));
         listMenu.addItem(new Model_Menu("2", "Sách", Model_Menu.MenuType.MENU));
         listMenu.addItem(new Model_Menu("3", "Đọc giả", Model_Menu.MenuType.MENU));

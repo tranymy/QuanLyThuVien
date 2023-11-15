@@ -22,22 +22,26 @@ public class QuenMatKhau extends javax.swing.JFrame {
     public QuenMatKhau() {
         initComponents();
         init();
-    }
-private void resetPass() {
-    if(kiemloi()){
-        try {
-             QuenMKDAO qmk  = new QuenMKDAO();
-            qmk.update(txtEmail.getText());
-            qmk.sendmail(txtEmail.getText());
+        this.setLocationRelativeTo(null);
 
-            System.out.println("The e-mail has been sent successfully!");
-            MsgBox.alert(this, "Email đã được gửi thành công. Vui lòng kiểm tra ngay!");
-        } catch (Exception e) {
-            e.printStackTrace();
+    }
+
+    private void resetPass() {
+        if (kiemloi()) {
+            try {
+                QuenMKDAO qmk = new QuenMKDAO();
+                qmk.update(txtEmail.getText());
+                qmk.sendmail(txtEmail.getText());
+
+                System.out.println("The e-mail has been sent successfully!");
+                MsgBox.alert(this, "Email đã được gửi thành công. Vui lòng kiểm tra ngay!");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            lammoi();
         }
-        lammoi();
     }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,19 +64,28 @@ private void resetPass() {
         txtCapcha = new button.textfield.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Quên mật khẩu");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_11Layout = new javax.swing.GroupLayout(menu_11);
         menu_11.setLayout(menu_11Layout);
         menu_11Layout.setHorizontalGroup(
             menu_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_11Layout.createSequentialGroup()
-                .addContainerGap(265, Short.MAX_VALUE)
+            .addGroup(menu_11Layout.createSequentialGroup()
+                .addGap(256, 256, 256)
                 .addComponent(jLabel3)
-                .addGap(251, 251, 251))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menu_11Layout.setVerticalGroup(
             menu_11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +100,7 @@ private void resetPass() {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Mã");
 
-        btnDangNhap.setText("trở về");
+        btnDangNhap.setText("Trở về");
         btnDangNhap.setRadius(12);
         btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +108,7 @@ private void resetPass() {
             }
         });
 
-        btnGui.setText("Gui");
+        btnGui.setText("Gửi");
         btnGui.setRadius(12);
         btnGui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,23 +208,18 @@ private void resetPass() {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(menu_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))))
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
+            .addComponent(menu_11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(menu_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,13 +230,13 @@ private void resetPass() {
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
-       
+
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
         // TODO add your handling code here:
-       this.resetPass();
-     
+        this.resetPass();
+
     }//GEN-LAST:event_btnGuiActionPerformed
 
     private void txtMacapchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMacapchaActionPerformed
@@ -237,44 +245,57 @@ private void resetPass() {
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         // TODO add your handling code here:
-          if(txtEmail.getText().equalsIgnoreCase("Email...")){
-           txtEmail.setText("");
-           txtEmail.setForeground(Color.black);
-       }
+        if (txtEmail.getText().equalsIgnoreCase("Email...")) {
+            txtEmail.setText("");
+            txtEmail.setForeground(Color.black);
+        }
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
         // TODO add your handling code here:
-         if(txtEmail.getText().equalsIgnoreCase("")){
-           txtEmail.setText("Email...");
-           txtEmail.setForeground(Color.gray);
-       }
+        if (txtEmail.getText().equalsIgnoreCase("")) {
+            txtEmail.setText("Email...");
+            txtEmail.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_txtEmailFocusLost
 
     private void txtCapchaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCapchaFocusGained
         // TODO add your handling code here:
-         if(txtCapcha.getText().equalsIgnoreCase("Capcha...")){
-          txtCapcha.setText("");
-           txtCapcha.setForeground(Color.black);
-       }
+        if (txtCapcha.getText().equalsIgnoreCase("Capcha...")) {
+            txtCapcha.setText("");
+            txtCapcha.setForeground(Color.black);
+        }
     }//GEN-LAST:event_txtCapchaFocusGained
 
     private void txtCapchaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCapchaFocusLost
         // TODO add your handling code here:
-         if(txtCapcha.getText().equalsIgnoreCase("")){
-          txtCapcha.setText("Capcha...");
-           txtCapcha.setForeground(Color.gray);
-       }
+        if (txtCapcha.getText().equalsIgnoreCase("")) {
+            txtCapcha.setText("Capcha...");
+            txtCapcha.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_txtCapchaFocusLost
 
     private void txtCapchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCapchaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCapchaActionPerformed
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+        jLabel3.setForeground(new Color(242, 242, 242));
+
+
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+        jLabel3.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_jLabel3MouseExited
 
     /**
      * @param args the command line arguments
@@ -326,55 +347,59 @@ private void resetPass() {
     private button.textfield.TextField txtMacapcha;
     // End of variables declaration//GEN-END:variables
 
-void init(){
-    hienthiGoiY();
-    maCapcha();
-}
-public void hienthiGoiY(){
-    txtEmail.setText("Email....");
-    //txtEmail.setForeground(Color.gray);
-    txtCapcha.setText("Capcha...");
-    txtMacapcha.setForeground(Color.gray);
-    txtMacapcha.setEditable(false);
-    txtMacapcha.requestFocus();
-}
-boolean kiemloi(){
-    if(txtEmail.getText().equalsIgnoreCase("Email...")){
-        txtEmail.requestFocus();
-        MsgBox.alert(this, "Không để trống Email");
-        return false;
+    void init() {
+        hienthiGoiY();
+        maCapcha();
     }
-    if(txtCapcha.getText().equalsIgnoreCase("Capcha...")){
-        txtCapcha.requestFocus();
-        MsgBox.alert(this, "Không để trống Capcha");
-        return false;
+
+    public void hienthiGoiY() {
+        txtEmail.setText("Email....");
+        //txtEmail.setForeground(Color.gray);
+        txtCapcha.setText("Capcha...");
+        txtMacapcha.setForeground(Color.gray);
+        txtMacapcha.setEditable(false);
+        txtMacapcha.requestFocus();
     }
-    if(txtEmail.getText().equalsIgnoreCase("")){
-        txtEmail.requestFocus();
-        MsgBox.alert(this, "Không để trống Email");
-        return false;
-    }
-      if(txtCapcha.getText().equalsIgnoreCase("")){
-        txtCapcha.requestFocus();
-        MsgBox.alert(this, "Không để trống Capcha");
-        return false;
-    }
-      if(!txtCapcha.getText().equalsIgnoreCase(txtMacapcha.getText())){
-          txtCapcha.requestFocus();
-          MsgBox.alert(this, "Mã capcha không khớp");
-          maCapcha();
-          return false;
-      }
-    return true;
-}
-void maCapcha(){
-    String capcha = new ramdom().soNgauNHIEN(5);
-    txtMacapcha.setText(capcha);
-    txtMacapcha.setFont(new Font(capcha,Font.HANGING_BASELINE,14)); 
-}
-void lammoi(){
-    hienthiGoiY();
-    maCapcha();
-}
-        
+
+    boolean kiemloi() {
+        if (txtEmail.getText().equalsIgnoreCase("Email...")) {
+            txtEmail.requestFocus();
+            MsgBox.alert(this, "Không để trống Email");
+            return false;
         }
+        if (txtCapcha.getText().equalsIgnoreCase("Capcha...")) {
+            txtCapcha.requestFocus();
+            MsgBox.alert(this, "Không để trống Capcha");
+            return false;
+        }
+        if (txtEmail.getText().equalsIgnoreCase("")) {
+            txtEmail.requestFocus();
+            MsgBox.alert(this, "Không để trống Email");
+            return false;
+        }
+        if (txtCapcha.getText().equalsIgnoreCase("")) {
+            txtCapcha.requestFocus();
+            MsgBox.alert(this, "Không để trống Capcha");
+            return false;
+        }
+        if (!txtCapcha.getText().equalsIgnoreCase(txtMacapcha.getText())) {
+            txtCapcha.requestFocus();
+            MsgBox.alert(this, "Mã capcha không khớp");
+            maCapcha();
+            return false;
+        }
+        return true;
+    }
+
+    void maCapcha() {
+        String capcha = new ramdom().soNgauNHIEN(5);
+        txtMacapcha.setText(capcha);
+        txtMacapcha.setFont(new Font(capcha, Font.HANGING_BASELINE, 14));
+    }
+
+    void lammoi() {
+        hienthiGoiY();
+        maCapcha();
+    }
+
+}
