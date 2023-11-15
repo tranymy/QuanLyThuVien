@@ -16,7 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pictureBox1" alignment="0" pref="725" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="pictureBox1" min="-2" pref="796" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -29,7 +33,7 @@
     <Container class="swing.PictureBox" name="pictureBox1">
       <Properties>
         <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/slide2.jpeg"/>
+          <Image iconType="3" name="/slideshow/img/Colorful Vintage Elegant Library Furniture Animated Illustration Presentation  (3).png"/>
         </Property>
       </Properties>
 
