@@ -4,18 +4,28 @@
  */
 package quanlythuvien;
 
+import Dao.DocGiaDao;
+import Entity.DocGia;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
+import utils.MsgBox;
+import utils.XDate;
 
 /**
  *
  * @author duyvo
  */
 public class QLDocGia extends javax.swing.JFrame {
+
+    DocGiaDao DGdao = new DocGiaDao();
+    int row = 0;
 
     /**
      * Creates new form QLNhanVien
@@ -24,6 +34,7 @@ public class QLDocGia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         init();
+        tblDocGia.setDefaultEditor(Object.class, null);
     }
 
     /**
@@ -50,15 +61,15 @@ public class QLDocGia extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         menu_011 = new component.menu_01();
-        myButton1 = new button.MyButton();
-        myButton2 = new button.MyButton();
-        myButton3 = new button.MyButton();
-        myButton4 = new button.MyButton();
-        myButton5 = new button.MyButton();
-        myButton6 = new button.MyButton();
-        myButton7 = new button.MyButton();
-        myButton8 = new button.MyButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        btnThem = new button.MyButton();
+        btnXoa = new button.MyButton();
+        btnSua = new button.MyButton();
+        btnLamMoi = new button.MyButton();
+        btnLast = new button.MyButton();
+        btnNext = new button.MyButton();
+        btnPrev = new button.MyButton();
+        btnFirst = new button.MyButton();
+        tabs = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtSDT = new button.textfield.TextField();
@@ -76,7 +87,7 @@ public class QLDocGia extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txtMaNV = new button.textfield.TextField();
-        combobox1 = new button.combobox.Combobox();
+        cboLop = new button.combobox.Combobox();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDocGia = new javax.swing.JTable();
@@ -217,29 +228,69 @@ public class QLDocGia extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        myButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-plus.png"))); // NOI18N
-        myButton1.setRadius(10);
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-plus.png"))); // NOI18N
+        btnThem.setRadius(10);
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
-        myButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-x.png"))); // NOI18N
-        myButton2.setRadius(10);
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-x.png"))); // NOI18N
+        btnXoa.setRadius(10);
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
 
-        myButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-pencil.png"))); // NOI18N
-        myButton3.setRadius(10);
+        btnSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-pencil.png"))); // NOI18N
+        btnSua.setRadius(10);
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
 
-        myButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bxs-news.png"))); // NOI18N
-        myButton4.setRadius(10);
+        btnLamMoi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bxs-news.png"))); // NOI18N
+        btnLamMoi.setRadius(10);
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiActionPerformed(evt);
+            }
+        });
 
-        myButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-chevron-right.png"))); // NOI18N
-        myButton5.setRadius(10);
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-chevron-right.png"))); // NOI18N
+        btnLast.setRadius(10);
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
+            }
+        });
 
-        myButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-last-page.png"))); // NOI18N
-        myButton6.setRadius(10);
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-last-page.png"))); // NOI18N
+        btnNext.setRadius(10);
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
-        myButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/first-page-regular-24.png"))); // NOI18N
-        myButton7.setRadius(10);
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/first-page-regular-24.png"))); // NOI18N
+        btnPrev.setRadius(10);
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevActionPerformed(evt);
+            }
+        });
 
-        myButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-chevron-left.png"))); // NOI18N
-        myButton8.setRadius(10);
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/bx-chevron-left.png"))); // NOI18N
+        btnFirst.setRadius(10);
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_011Layout = new javax.swing.GroupLayout(menu_011);
         menu_011.setLayout(menu_011Layout);
@@ -248,39 +299,39 @@ public class QLDocGia extends javax.swing.JFrame {
             .addGroup(menu_011Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu_011Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(myButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addComponent(myButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(myButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(btnLast, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLamMoi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPrev, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFirst, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         menu_011Layout.setVerticalGroup(
             menu_011Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_011Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLast, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(myButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPrev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(myButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnFirst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 204, 204));
-        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabs.setBackground(new java.awt.Color(255, 204, 204));
+        tabs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -375,30 +426,38 @@ public class QLDocGia extends javax.swing.JFrame {
         });
         jPanel2.add(txtMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 280, -1));
 
-        combobox1.setEditable(true);
-        combobox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12C7", "12C6", "12C5", "12C4", " " }));
-        combobox1.setToolTipText("");
-        combobox1.addActionListener(new java.awt.event.ActionListener() {
+        cboLop.setEditable(true);
+        cboLop.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12C7", "12C6", "12C5", "12C4", " " }));
+        cboLop.setToolTipText("");
+        cboLop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combobox1ActionPerformed(evt);
+                cboLopActionPerformed(evt);
             }
         });
-        jPanel2.add(combobox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 280, 40));
+        jPanel2.add(cboLop, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 280, 40));
 
-        jTabbedPane1.addTab("Đọc giả", jPanel2);
+        tabs.addTab("Đọc giả", jPanel2);
 
         tblDocGia.setBackground(new java.awt.Color(255, 204, 204));
         tblDocGia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã đọc giả", "Tên đọc giả", "SDT", "Giới tính", "Lớp", "Mã nhân viên", "Ngày sinh", "Ghi chú"
+                "Mã đọc giả", "Tên đọc giả", "SDT", "Giới tính", "Lớp", "Mã nhân viên", "Ngày sinh"
             }
         ));
+        tblDocGia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDocGiaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblDocGiaMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDocGia);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -414,7 +473,7 @@ public class QLDocGia extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Danh sách", jPanel3);
+        tabs.addTab("Danh sách", jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -432,7 +491,7 @@ public class QLDocGia extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(menu_011, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTabbedPane1)))
+                                .addComponent(tabs)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -442,7 +501,7 @@ public class QLDocGia extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_011, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1))
+                    .addComponent(tabs))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -501,9 +560,9 @@ public class QLDocGia extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void combobox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox1ActionPerformed
+    private void cboLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboLopActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_combobox1ActionPerformed
+    }//GEN-LAST:event_cboLopActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
@@ -528,10 +587,56 @@ public class QLDocGia extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-          Main main = new Main();
+        Main main = new Main();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void tblDocGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocGiaMouseClicked
+
+    }//GEN-LAST:event_tblDocGiaMouseClicked
+
+    private void tblDocGiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocGiaMousePressed
+        if (evt.getClickCount() == 2) {
+            this.row = tblDocGia.rowAtPoint(evt.getPoint());
+            if (this.row >= 0) {
+                this.edit();
+                tabs.setSelectedIndex(0);
+            }
+        }
+    }//GEN-LAST:event_tblDocGiaMousePressed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        insert();
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        update();
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        delete();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+        last();
+    }//GEN-LAST:event_btnLastActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        next();
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
+       prev();
+    }//GEN-LAST:event_btnPrevActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        first();
+    }//GEN-LAST:event_btnFirstActionPerformed
+
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        clearForm();
+    }//GEN-LAST:event_btnLamMoiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -548,6 +653,164 @@ public class QLDocGia extends javax.swing.JFrame {
             }
         }).start();
         getContentPane().setBackground(new Color(255, 255, 255));
+
+        fillTable();
+        updateStatus();
+        
+    }
+
+    private void fillTable() {
+        DefaultTableModel model = (DefaultTableModel) tblDocGia.getModel();
+        model.setRowCount(0);
+        try {
+            List<DocGia> list = DGdao.selectAll();
+            for (DocGia dg : list) {
+                Object[] row = {
+                    dg.getMaDG(),
+                    dg.getTenDG(),
+                    dg.getSDT(),
+                    dg.isGIOITINH() ? "Nam" : "Nữ",
+                    dg.getLOP(),
+                    dg.getMANV(),
+                    dg.getNGAYSINH()
+                 
+                    
+                };
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu nhân viên!");
+            e.printStackTrace();
+        }
+    }
+
+    private void insert() {
+        DocGia dg = this.getForm();
+        try {
+            DGdao.insert(dg);
+            this.fillTable();
+            this.clearForm();
+            JOptionPane.showMessageDialog(this, "Thêm đọc giả mới thành công!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Thêm đọc giả mới thất bại!");
+            e.printStackTrace();
+
+        }
+    }
+
+    private void update() {
+        DocGia dg = this.getForm();
+
+        try {
+            DGdao.update(dg);
+            this.fillTable();
+            JOptionPane.showMessageDialog(this, "Cập nhật đọc giả thành công!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cập nhật đọc giả thất bại!");
+            e.printStackTrace();
+        }
+
+    }
+
+    private void delete() {
+
+        String madg = txtMaDG.getText();
+        if (MsgBox.confirm(this, "Bạn có thực sự muốn xóa đọc giả này không?")) {
+            try {
+                DGdao.delete(madg);
+                this.fillTable();
+                this.clearForm();
+                MsgBox.alert(this, "Xóa đọc giả thành công!");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Xóa đọc giả thất bại!");
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void clearForm() {
+        DocGia dg = new DocGia();
+        this.setForm(dg);
+        this.row = -1;
+        this.updateStatus();
+    }
+
+    private void edit() {
+        try {
+            String manh = (String) tblDocGia.getValueAt(this.row, 0);
+            DocGia model = DGdao.selectById(manh);
+            if (model != null) {
+                this.setForm(model);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }
+
+    private void setForm(DocGia DG) {
+        txtMaDG.setText(DG.getMaDG());
+        txtTenDG.setText(DG.getTenDG());
+        txtSDT.setText(DG.getSDT());
+        cboLop.setSelectedItem(DG.getLOP());
+        rdoNam.setSelected(DG.isGIOITINH());
+        rdoNu.setSelected(!DG.isGIOITINH());
+        txtNgaySinh.setText(DG.getNGAYSINH());
+        txtMaNV.setText(DG.getMANV());
+
+    }
+
+    private DocGia getForm() {
+        DocGia dg = new DocGia();
+        dg.setMaDG(txtMaDG.getText());
+        dg.setTenDG(txtTenDG.getText());
+        dg.setSDT(txtSDT.getText());
+        dg.setLOP(cboLop.getSelectedItem().toString());
+        dg.setGIOITINH(rdoNam.isSelected());
+        dg.setNGAYSINH(txtNgaySinh.getText());
+        dg.setMANV(txtMaNV.getText());
+        return dg;
+    }
+
+    private void first() {
+        this.row = 0;
+        this.edit();
+    }
+
+    private void prev() {
+        if (this.row > 0) {
+            this.row--;
+            this.edit();
+        }
+    }
+
+    private void next() {
+        if (this.row < tblDocGia.getRowCount() - 1) {
+            this.row++;
+            this.edit();
+        }
+    }
+
+    private void last() {
+        this.row = tblDocGia.getRowCount() - 1;
+        this.edit();
+    }
+
+    private void updateStatus() {
+        boolean edit = (this.row >= 0);
+        boolean first = (this.row == 0);
+        boolean last = (this.row == tblDocGia.getRowCount() - 1);
+        // Trạng thái form
+//        txtMaNhanVien.setEditable(!edit);
+//        btnThem.setEnabled(!edit);
+//        btnSua.setEnabled(edit);
+//        btnXoa.setEnabled(edit);
+//
+//        // Trạng thái điều hướng
+//        btnFirst.setEnabled(edit && !first);
+//        btnPrev.setEnabled(edit && !first);
+//        btnNext.setEnabled(edit && !last);
+//        btnLast.setEnabled(edit && !last);
     }
 
     public static void main(String args[]) {
@@ -588,7 +851,15 @@ public class QLDocGia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GioiTinh;
-    private button.combobox.Combobox combobox1;
+    private button.MyButton btnFirst;
+    private button.MyButton btnLamMoi;
+    private button.MyButton btnLast;
+    private button.MyButton btnNext;
+    private button.MyButton btnPrev;
+    private button.MyButton btnSua;
+    private button.MyButton btnThem;
+    private button.MyButton btnXoa;
+    private button.combobox.Combobox cboLop;
     private component.menu_1 footer;
     private component.menu_1 header;
     private javax.swing.JLabel jLabel1;
@@ -612,19 +883,11 @@ public class QLDocGia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblDongHo;
     private component.menu_01 menu_011;
-    private button.MyButton myButton1;
-    private button.MyButton myButton2;
-    private button.MyButton myButton3;
-    private button.MyButton myButton4;
-    private button.MyButton myButton5;
-    private button.MyButton myButton6;
-    private button.MyButton myButton7;
-    private button.MyButton myButton8;
     private javax.swing.JRadioButton rdoNam;
     private javax.swing.JRadioButton rdoNu;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblDocGia;
     private button.textfield.TextField txtGhiChu;
     private button.textfield.TextField txtMaDG;
