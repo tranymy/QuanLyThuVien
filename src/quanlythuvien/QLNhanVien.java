@@ -77,6 +77,9 @@ public class QLNhanVien extends javax.swing.JFrame {
         txtMatKhau = new button.JPassword.PasswordField();
         jLabel14 = new javax.swing.JLabel();
         txtMail = new button.textfield.TextField();
+        jLabel18 = new javax.swing.JLabel();
+        rdoNam1 = new javax.swing.JRadioButton();
+        rdoNu1 = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNhanVien = new javax.swing.JTable();
@@ -295,49 +298,49 @@ public class QLNhanVien extends javax.swing.JFrame {
                 txtSDTActionPerformed(evt);
             }
         });
-        jPanel2.add(txtSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 270, -1));
+        jPanel2.add(txtSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 230, -1));
 
         txtNgaySinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNgaySinhActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 112, 259, -1));
+        jPanel2.add(txtNgaySinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 230, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel8.setText("Tên nhân viên:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 6, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel9.setText("SDT:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, -1, -1));
 
         txtMaNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMaNVActionPerformed(evt);
             }
         });
-        jPanel2.add(txtMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 37, 259, -1));
+        jPanel2.add(txtMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 230, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel10.setText("Ngày sinh:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 81, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         txtTenNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenNVActionPerformed(evt);
             }
         });
-        jPanel2.add(txtTenNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 37, 270, -1));
+        jPanel2.add(txtTenNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 230, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel11.setText("Giới tính:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 159, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         GioiTinh.add(rdoNu);
         rdoNu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rdoNu.setText("Nữ");
-        jPanel2.add(rdoNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 189, 64, 34));
+        jPanel2.add(rdoNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 64, 34));
 
         GioiTinh.add(rdoNam);
         rdoNam.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -347,34 +350,53 @@ public class QLNhanVien extends javax.swing.JFrame {
                 rdoNamActionPerformed(evt);
             }
         });
-        jPanel2.add(rdoNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 189, 64, 34));
+        jPanel2.add(rdoNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 64, 34));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel12.setText("Ghi chú:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 232, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, -1, -1));
 
         txtGhiChu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGhiChuActionPerformed(evt);
             }
         });
-        jPanel2.add(txtGhiChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 282, 259, 73));
+        jPanel2.add(txtGhiChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 230, 270));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel13.setText("Mật khẩu:");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
-        jPanel2.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 270, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 80, -1));
+        jPanel2.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 240, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel14.setText("Mail:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         txtMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMailActionPerformed(evt);
             }
         });
-        jPanel2.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 270, -1));
+        jPanel2.add(txtMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 230, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
+        jLabel18.setText("Vai Trò");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 70, -1));
+
+        GioiTinh.add(rdoNam1);
+        rdoNam1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rdoNam1.setText("Thủ Thư");
+        rdoNam1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoNam1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(rdoNam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 90, 34));
+
+        GioiTinh.add(rdoNu1);
+        rdoNu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rdoNu1.setText("Nhân Viên");
+        jPanel2.add(rdoNu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 100, 34));
 
         jTabbedPane1.addTab("Nhân viên", jPanel2);
 
@@ -396,7 +418,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,6 +538,10 @@ public class QLNhanVien extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void rdoNam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNam1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoNam1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -578,6 +604,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -602,7 +629,9 @@ public class QLNhanVien extends javax.swing.JFrame {
     private button.MyButton myButton7;
     private button.MyButton myButton8;
     private javax.swing.JRadioButton rdoNam;
+    private javax.swing.JRadioButton rdoNam1;
     private javax.swing.JRadioButton rdoNu;
+    private javax.swing.JRadioButton rdoNu1;
     private javax.swing.JTable tblNhanVien;
     private button.textfield.TextField txtGhiChu;
     private button.textfield.TextField txtMaNV;
