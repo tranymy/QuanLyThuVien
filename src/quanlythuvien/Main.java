@@ -17,14 +17,14 @@ import slideshow.Slide2;
 
 
 public class Main extends javax.swing.JFrame {
-    private final Model_Menu data;
+    
 
-    public Main(model.Model_Menu data) {
+    public Main() {
         initComponents();
         init();
         pieChart();
         pieBar();
-        this.data = data;
+       
     }
 
     private void pieChart() {
@@ -323,7 +323,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main(null).setVisible(true);
+                new Main().setVisible(true);
             }
         });
     }
