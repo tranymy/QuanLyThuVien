@@ -4,6 +4,8 @@
  */
 package quanlythuvien;
 
+import java.awt.Color;
+
 /**
  *
  * @author duyvo
@@ -52,6 +54,7 @@ public class TaoTaiKhoan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -214,6 +217,14 @@ public class TaoTaiKhoan extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tạo tài khoản");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_11Layout = new javax.swing.GroupLayout(menu_11);
         menu_11.setLayout(menu_11Layout);
@@ -286,6 +297,18 @@ public class TaoTaiKhoan extends javax.swing.JFrame {
     private void rdoNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoNamActionPerformed
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+                jLabel3.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+                jLabel3.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_jLabel3MouseExited
 
     /**
      * @param args the command line arguments
