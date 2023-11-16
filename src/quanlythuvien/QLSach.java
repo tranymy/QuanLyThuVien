@@ -4,12 +4,15 @@
  */
 package quanlythuvien;
 
+
 import Dao.SachDao;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
+
 
 /**
  *
@@ -22,6 +25,7 @@ public class QLSach extends javax.swing.JFrame {
 
     SachDao sdao = new SachDao();
     int row = 0;
+
 
 
     /**
@@ -49,16 +53,16 @@ public class QLSach extends javax.swing.JFrame {
         GioiTinh = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         header = new component.menu_1();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        QUANLISACH = new javax.swing.JLabel();
+        lblQLNhanVien = new javax.swing.JLabel();
+        lblQLPhieuMuon = new javax.swing.JLabel();
+        lblQLDocGia = new javax.swing.JLabel();
+        lblThongKe = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         footer = new component.menu_1();
         lblDongHo = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lblGioiThieu = new javax.swing.JLabel();
+        lblHoTro = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         menu_011 = new component.menu_01();
         myButton1 = new button.MyButton();
@@ -93,48 +97,83 @@ public class QLSach extends javax.swing.JFrame {
         tblSach = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Quản lí sách");
-
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Quản lí nhân viên");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+        QUANLISACH.setBackground(new java.awt.Color(102, 102, 102));
+        QUANLISACH.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        QUANLISACH.setForeground(new java.awt.Color(255, 255, 255));
+        QUANLISACH.setText("Quản lí sách");
+        QUANLISACH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                QUANLISACHMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                QUANLISACHMouseExited(evt);
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Quản lí phiếu mượn");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblQLNhanVien.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLNhanVien.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLNhanVien.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLNhanVien.setText("Quản lí nhân viên");
+        lblQLNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lblQLNhanVienMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLNhanVienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLNhanVienMouseExited(evt);
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Quản lí độc giả");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblQLPhieuMuon.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLPhieuMuon.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLPhieuMuon.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLPhieuMuon.setText("Quản lí phiếu mượn");
+        lblQLPhieuMuon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lblQLPhieuMuonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLPhieuMuonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLPhieuMuonMouseExited(evt);
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Báo cáo thống kê");
+        lblQLDocGia.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLDocGia.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLDocGia.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLDocGia.setText("Quản lí độc giả");
+        lblQLDocGia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQLDocGiaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLDocGiaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLDocGiaMouseExited(evt);
+            }
+        });
+
+        lblThongKe.setBackground(new java.awt.Color(204, 204, 204));
+        lblThongKe.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblThongKe.setForeground(new java.awt.Color(255, 255, 255));
+        lblThongKe.setText("Báo cáo thống kê");
+        lblThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblThongKeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblThongKeMouseExited(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
@@ -151,15 +190,15 @@ public class QLSach extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addComponent(QUANLISACH)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblQLNhanVien)
                 .addGap(48, 48, 48)
-                .addComponent(jLabel4)
+                .addComponent(lblQLDocGia)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel3)
+                .addComponent(lblQLPhieuMuon)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel5)
+                .addComponent(lblThongKe)
                 .addGap(46, 46, 46)
                 .addComponent(jLabel6)
                 .addContainerGap())
@@ -169,28 +208,44 @@ public class QLSach extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(QUANLISACH)
                     .addComponent(jLabel6)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
+                            .addComponent(lblThongKe)
+                            .addComponent(lblQLPhieuMuon)
+                            .addComponent(lblQLDocGia)
+                            .addComponent(lblQLNhanVien))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblDongHo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDongHo.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Giới thiệu");
+        lblGioiThieu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblGioiThieu.setForeground(new java.awt.Color(255, 255, 255));
+        lblGioiThieu.setText("Giới thiệu");
+        lblGioiThieu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseExited(evt);
+            }
+        });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Giới thiệu");
+        lblHoTro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHoTro.setForeground(new java.awt.Color(255, 255, 255));
+        lblHoTro.setText("Hỗ trợ");
+        lblHoTro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHoTroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHoTroMouseExited(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("|");
@@ -201,9 +256,9 @@ public class QLSach extends javax.swing.JFrame {
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel15)
+                .addComponent(lblGioiThieu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
+                .addComponent(lblHoTro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
@@ -217,8 +272,8 @@ public class QLSach extends javax.swing.JFrame {
                 .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDongHo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel16)
+                        .addComponent(lblGioiThieu)
+                        .addComponent(lblHoTro)
                         .addComponent(jLabel17)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -254,7 +309,7 @@ public class QLSach extends javax.swing.JFrame {
             .addGroup(menu_011Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu_011Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(myButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(myButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                     .addComponent(myButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(myButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(myButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -482,14 +537,13 @@ public class QLSach extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(menu_011, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tab)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tab))
+                    .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -501,23 +555,18 @@ public class QLSach extends javax.swing.JFrame {
                     .addComponent(menu_011, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tab))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -543,33 +592,117 @@ public class QLSach extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblQLNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseClicked
         // TODO add your handling code here:
         QLNhanVien main = new QLNhanVien();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblQLNhanVienMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void lblQLDocGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseClicked
         // TODO add your handling code here:
         QLDocGia main = new QLDocGia();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lblQLDocGiaMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblQLPhieuMuonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLPhieuMuonMouseClicked
         // TODO add your handling code here:
-         QLPhieuMuon main = new QLPhieuMuon();
+        QLPhieuMuon main = new QLPhieuMuon();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lblQLPhieuMuonMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-          Main main = new Main();
+        Main main = new Main();
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void QUANLISACHMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUANLISACHMouseEntered
+        // TODO add your handling code here:
+                QUANLISACH.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_QUANLISACHMouseEntered
+
+    private void QUANLISACHMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUANLISACHMouseExited
+        // TODO add your handling code here:
+                QUANLISACH.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_QUANLISACHMouseExited
+
+    private void lblQLNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseEntered
+        // TODO add your handling code here:
+                lblQLNhanVien.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblQLNhanVienMouseEntered
+
+    private void lblQLNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseExited
+        // TODO add your handling code here:
+                lblQLNhanVien.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLNhanVienMouseExited
+
+    private void lblQLDocGiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseEntered
+        // TODO add your handling code here:
+                lblQLDocGia.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblQLDocGiaMouseEntered
+
+    private void lblQLDocGiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseExited
+        // TODO add your handling code here:
+                lblQLDocGia.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLDocGiaMouseExited
+
+    private void lblQLPhieuMuonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLPhieuMuonMouseEntered
+        // TODO add your handling code here:
+                lblQLPhieuMuon.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblQLPhieuMuonMouseEntered
+
+    private void lblQLPhieuMuonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLPhieuMuonMouseExited
+        // TODO add your handling code here:
+                lblQLPhieuMuon.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLPhieuMuonMouseExited
+
+    private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
+        // TODO add your handling code here:
+                lblThongKe.setForeground(new Color(255, 255, 0));        lblQLPhieuMuon.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblThongKeMouseEntered
+
+    private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
+        // TODO add your handling code here:
+                lblThongKe.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblThongKeMouseExited
+
+    private void lblGioiThieuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseEntered
+        // TODO add your handling code here:
+                lblGioiThieu.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblGioiThieuMouseEntered
+
+    private void lblGioiThieuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseExited
+        // TODO add your handling code here:
+                lblGioiThieu.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblGioiThieuMouseExited
+
+    private void lblHoTroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoTroMouseEntered
+        // TODO add your handling code here:
+                lblHoTro.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblHoTroMouseEntered
+
+    private void lblHoTroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoTroMouseExited
+        // TODO add your handling code here:
+                lblHoTro.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblHoTroMouseExited
 
     /**
      * @param args the command line arguments
@@ -626,6 +759,7 @@ public class QLSach extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DanhSach;
     private javax.swing.ButtonGroup GioiTinh;
+    private javax.swing.JLabel QUANLISACH;
     private javax.swing.JPanel Sach;
     private component.menu_1 footer;
     private component.menu_1 header;
@@ -637,16 +771,9 @@ public class QLSach extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -654,6 +781,12 @@ public class QLSach extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDongHo;
+    private javax.swing.JLabel lblGioiThieu;
+    private javax.swing.JLabel lblHoTro;
+    private javax.swing.JLabel lblQLDocGia;
+    private javax.swing.JLabel lblQLNhanVien;
+    private javax.swing.JLabel lblQLPhieuMuon;
+    private javax.swing.JLabel lblThongKe;
     private component.menu_01 menu_011;
     private button.MyButton myButton1;
     private button.MyButton myButton2;

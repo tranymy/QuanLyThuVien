@@ -22,4 +22,15 @@ public class MsgBox {
     public static String prompt(Component parent, String message){
          return JOptionPane.showInputDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
     }
+    public static void showErrorDialog(Component parent, String content, String title) {
+        JOptionPane.showMessageDialog(parent, content, title, JOptionPane.ERROR_MESSAGE);
+    }
+        public static void showMessageDialog(Component parent, String content){
+        JOptionPane.showMessageDialog(parent, content, "Hệ thống quản lý main", JOptionPane.INFORMATION_MESSAGE);
+    }
+         public static boolean showConfirmDialog(Component parent, String content){
+        int choose = JOptionPane.showConfirmDialog(parent, content, "Hệ thống quản lý main",
+                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        return choose == JOptionPane.YES_OPTION;
+    }
 }
