@@ -12,7 +12,10 @@ import java.sql.*;
  */
 public class JdbcHelper {
 
+
     public static Connection getconnecDb() {
+
+
         try {
             String connectionUrl = "jdbc:sqlserver://localhost:1433;"
                     + "databaseName=QUANLYTHUVIEN;user=sa;password=12345;"
