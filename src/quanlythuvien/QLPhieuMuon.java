@@ -393,6 +393,9 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         lblPhieuMuon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/4.png"))); // NOI18N
         lblPhieuMuon.setText("Phiếu mượn chi tiết");
         lblPhieuMuon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPhieuMuonMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblPhieuMuonMouseEntered(evt);
             }
@@ -700,7 +703,7 @@ public class QLPhieuMuon extends javax.swing.JFrame {
 
     private void lblPhieuMuonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPhieuMuonMouseEntered
         // TODO add your handling code here:
-                lblPhieuMuon.setForeground(new Color(153,0,153));
+        lblPhieuMuon.setForeground(new Color(153, 0, 153));
 
 
     }//GEN-LAST:event_lblPhieuMuonMouseEntered
@@ -719,6 +722,13 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         main.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void lblPhieuMuonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPhieuMuonMouseClicked
+        // TODO add your handling code here:
+        QLPhieuMuonChiTiet main = new QLPhieuMuonChiTiet();
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblPhieuMuonMouseClicked
 
     /**
      * @param args the command line arguments
