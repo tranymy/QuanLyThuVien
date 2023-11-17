@@ -16,43 +16,25 @@ import java.util.List;
  */
 public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
-    final String INSERT_SQL = "INSERT INTO NHANVIEN(MaNV,TenNV,NGAYSINH,SDT,GIOITINH,,MatKhau,EMAIL,GHICHU,VAITRO) VALUES (?,?,?,?,?,?,?,?)";
-    final String UPDATE_SQL = "UPDATE NHANVIEN SET TenNV = ?, NGAYSINH = ?, SDT = ?, GIOITINH = ?, MatKhau = ?,EMAIL = ?, GHICHU = ?, VAITRO = ? WHERE MaNV = ?";
+    final String INSERT_SQL = "INSERT INTO NHANVIEN(MaNV,TenNV,NGAYSINH,SDT,GIOITINH,EMAIL,GHICHU,VAITRO) VALUES (?,?,?,?,?,?,?,?)";
+    final String UPDATE_SQL = "UPDATE NHANVIEN SET TenNV = ?, NGAYSINH = ?, SDT = ?, GIOITINH = ?, EMAIL = ?, GHICHU = ?, VAITRO = ? WHERE MaNV = ?";
     final String DELETE_SQL = "DELETE FROM NHANVIEN WHERE MaNV = ?";
     final String SELECT_ALL_SQL = "SELECT * FROM NHANVIEN";
-    final String SELECT_BY_ID_SQL = "SELECT * FROM NHANVIEN WHERE MaNV = ?";
+    final String SELECT_BYID_SQL = "SELECT * FROM NHANVIEN WHERE MaNV = ?";
 
     @Override
     public void insert(NhanVien entity) {
-        JdbcHelper.executeUpdate(INSERT_SQL,
-                entity.getTenNV(),
-                entity.getNGAYSINH(),
-                entity.getSDT(),
-                entity.isGIOITINH(),
-                entity.getMatKhau(),
-                entity.getEMAIL(),
-                entity.getGHICHU(),
-                entity.isVAITRO(),
-                entity.getMaNV());
+        JdbcHelper.update(INSERT_SQL, entity.getMaNV(), entity.getTenNV(), entity.getNGAYSINH(), entity.getSDT(), entity.isGIOITINH(), entity.getEMAIL(), entity.getGHICHU(), entity.isVAITRO());
     }
 
     @Override
     public void update(NhanVien entity) {
-        JdbcHelper.executeUpdate(UPDATE_SQL,
-                entity.getTenNV(),
-                entity.getNGAYSINH(),
-                entity.getSDT(),
-                entity.isGIOITINH(),
-                entity.getMatKhau(),
-                entity.getEMAIL(),
-                entity.getGHICHU(),
-                entity.isVAITRO(),
-                entity.getMaNV());
+        JdbcHelper.update(UPDATE_SQL, entity.getTenNV(), entity.getNGAYSINH(), entity.getSDT(), entity.isGIOITINH(), entity.getEMAIL(), entity.getGHICHU(), entity.isVAITRO(), entity.getMaNV());
     }
 
     @Override
     public void delete(String id) {
-        JdbcHelper.executeUpdate(DELETE_SQL, id);
+        JdbcHelper.update(DELETE_SQL, id);
     }
 
     @Override
@@ -62,7 +44,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     @Override
     public NhanVien selectById(String id) {
-        List<NhanVien> list = selectBySql(SELECT_BY_ID_SQL, id);
+        List<NhanVien> list = selectBySql(SELECT_BYID_SQL, id);
         if (list.isEmpty()) {
             return null;
         }
@@ -73,13 +55,12 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
     protected List<NhanVien> selectBySql(String sql, Object... args) {
         List<NhanVien> list = new ArrayList<>();
         try {
-            ResultSet rs = JdbcHelper.executeQuery(sql, args);
+            ResultSet rs = JdbcHelper.query(sql, args);
             while (rs.next()) {
                 NhanVien entity = new NhanVien();
                 entity.setMaNV(rs.getString("MaNV"));
                 entity.setTenNV(rs.getString("TenNV"));
                 entity.setNGAYSINH(rs.getDate("NGAYSINH"));
-                entity.setMatKhau(rs.getString("MATKHAU"));
                 entity.setSDT(rs.getString("SDT"));
                 entity.setGIOITINH(rs.getBoolean("GIOITINH"));
                 entity.setEMAIL(rs.getString("EMAIL"));
@@ -87,11 +68,10 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
                 entity.setVAITRO(rs.getBoolean("VAITRO"));
                 list.add(entity);
             }
-            rs.getStatement().getConnection().close();
-            return list;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return list;
     }
 
 }

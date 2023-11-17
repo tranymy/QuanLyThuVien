@@ -9,12 +9,12 @@ package slideshow;
  *
  * @author RAVEN
  */
-public class Slide2 extends javax.swing.JPanel {
+public class Slide3 extends javax.swing.JPanel {
 
     /**
      * Creates new form Slide1
      */
-    public Slide2() {
+    public Slide3() {
         initComponents();
     }
 
@@ -29,7 +29,7 @@ public class Slide2 extends javax.swing.JPanel {
 
         pictureBox1 = new swing.PictureBox();
 
-        pictureBox1.setImage(new javax.swing.ImageIcon(getClass().getResource("/icon/slide2.jpeg"))); // NOI18N
+        pictureBox1.setImage(new javax.swing.ImageIcon(getClass().getResource("/icon/slide3.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
