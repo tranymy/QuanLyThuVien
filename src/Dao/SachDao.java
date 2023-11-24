@@ -24,17 +24,29 @@ public class SachDao extends QLThuVienDao<Sach, String> {
 
     @Override
     public void insert(Sach entity) {
-        JdbcHelper.update(INSERT_SQL, entity.getMaSACH(), entity.getTenSACH(), entity.getTacGIA(), entity.getNXB(), entity.getTHELOAI(), entity.getMOTA());
+        JdbcHelper.executeUpdate(INSERT_SQL,
+                entity.getTenSACH(),
+                entity.getTacGIA(),
+                entity.getNXB(),
+                entity.getTHELOAI(),
+                entity.getMOTA(),
+                entity.getMaSACH());
     }
 
     @Override
     public void update(Sach entity) {
-        JdbcHelper.update(UPDATE_SQL, entity.getTenSACH(), entity.getTacGIA(), entity.getNXB(), entity.getTHELOAI(), entity.getMOTA(), entity.getMaSACH());
+        JdbcHelper.executeUpdate(INSERT_SQL,
+                entity.getTenSACH(),
+                entity.getTacGIA(),
+                entity.getNXB(),
+                entity.getTHELOAI(),
+                entity.getMOTA(),
+                entity.getMaSACH());
     }
 
     @Override
     public void delete(String id) {
-        JdbcHelper.update(DELETE_SQL, id);
+        JdbcHelper.executeUpdate(DELETE_SQL, id);
     }
 
     @Override
@@ -55,7 +67,7 @@ public class SachDao extends QLThuVienDao<Sach, String> {
     protected List<Sach> selectBySql(String sql, Object... args) {
         List<Sach> list = new ArrayList<>();
         try {
-            ResultSet rs = JdbcHelper.query(sql, args);
+            ResultSet rs = JdbcHelper.executeQuery(sql, args);
             while (rs.next()) {
                 Sach entity = new Sach();
                 entity.setMaSACH(rs.getString("MaSACH"));

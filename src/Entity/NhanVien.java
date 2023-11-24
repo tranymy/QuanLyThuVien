@@ -15,16 +15,18 @@ public class NhanVien {
     private String MaNV;
     private String TenNV;
     private Date NGAYSINH;
+    private String matKhau;
     private String SDT;
     private boolean GIOITINH;
     private String EMAIL;
     private String GHICHU;
     private boolean VAITRO;
 
-    public NhanVien(String MaNV, String TenNV, Date NGAYSINH, String SDT, boolean GIOITINH, String EMAIL, String GHICHU, boolean VAITRO) {
+    public NhanVien(String MaNV, String TenNV, Date NGAYSINH, String matKhau, String SDT, boolean GIOITINH, String EMAIL, String GHICHU, boolean VAITRO) {
         this.MaNV = MaNV;
         this.TenNV = TenNV;
         this.NGAYSINH = NGAYSINH;
+        this.matKhau = matKhau;
         this.SDT = SDT;
         this.GIOITINH = GIOITINH;
         this.EMAIL = EMAIL;
@@ -57,6 +59,14 @@ public class NhanVien {
 
     public void setNGAYSINH(Date NGAYSINH) {
         this.NGAYSINH = NGAYSINH;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
     }
 
     public String getSDT() {
@@ -99,5 +109,8 @@ public class NhanVien {
         this.VAITRO = VAITRO;
     }
 
+  
+
+    
     
 }
