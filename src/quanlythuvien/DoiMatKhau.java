@@ -104,7 +104,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -183,17 +183,18 @@ public class DoiMatKhau extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(menu_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(menu_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,13 +221,9 @@ public class DoiMatKhau extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHuyActionPerformed
 
     private void btnDoimatkhuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoimatkhuaActionPerformed
-        System.out.println("da chay ");
+        // System.out.println("da chay ");
         changePassword();
     }//GEN-LAST:event_btnDoimatkhuaActionPerformed
-
-    private void txttendangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttendangnhapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttendangnhapActionPerformed
 
     private void lbldangnhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbldangnhapMouseClicked
         // TODO add your handling code here:
@@ -234,6 +231,10 @@ public class DoiMatKhau extends javax.swing.JFrame {
         login.setVisible(rootPaneCheckingEnabled);
         dispose();
     }//GEN-LAST:event_lbldangnhapMouseClicked
+
+    private void txttendangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttendangnhapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttendangnhapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,15 +316,6 @@ private void init() {
         } else if (!MKMoi.equals(NhapMKMoi)) {
             MsgBox.alert(this, "Mật khẩu mới không trùng!");
         } else {
-            System.out.println(Auth.user);
-            System.out.println(Auth.user.getEMAIL());
-            System.out.println(Auth.user.getGHICHU());
-            System.out.println(Auth.user.getMaNV());
-            System.out.println(Auth.user.getTenNV());
-            System.out.println(Auth.user.getMatKhau());
-            System.out.println(Auth.user.getNGAYSINH());
-            System.out.println(Auth.user.getSDT());
-
             Auth.user.setMatKhau(MKMoi);
             dao.update(Auth.user);
             MsgBox.alert(this, "Đổi mật khẩu thành công");

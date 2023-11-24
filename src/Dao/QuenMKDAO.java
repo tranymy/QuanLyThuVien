@@ -29,11 +29,11 @@ public class QuenMKDAO {
 
     public static ResultSet rs = null; // Trả về kết quả truy vấn
     public static String SELECT_EMAIL_SQL = "SELECT * FROM NHANVIEN WHERE EMAIL like ?";
-    public static String UPDATE_PASSWORD_SQL = "UPDATE NHANVIEN SET MatKhau=? WHERE EMAIL like ?";
+    public static String UPDATE_PASSWORD_SQL = "UPDATE NHANVIEN SET MatKhau = ? WHERE EMAIL like ?";
     public String newPass = getRandomString(6);
 
     private String getRandomString(int n) {
-        String txt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+";
+        String txt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ1234567890";
         StringBuilder sb = new StringBuilder();
         while (n > 0) {
             Random rd = new Random();
@@ -43,9 +43,9 @@ public class QuenMKDAO {
         return sb.toString();
     }
 
-    private String message(String msg, String hoTen, String taiKhoan) {
+    private String message(String msg, String HoTen, String taiKhoan) {
         msg = "<div style='background-color:cyan;padding:15px;border-radius:10px;margin:0 auto;width:70%;line-height:25px;'>"
-                + "Xin chào <b>" + hoTen + "</b>,<br/>"
+                + "Xin chào <b>" + HoTen + "</b>,<br/>"
                 + "Chúng tôi muốn cho bạn biết rằng mật khẩu trên ứng dụng <b>QUANLYTHUVIEN</b> của bạn đã được đặt lại."
                 + "<br/><br/>"
                 + "Tên tài khoản: " + taiKhoan + "<br/>"
@@ -73,9 +73,8 @@ public class QuenMKDAO {
             Properties props = new Properties();
             props.put("mail.smtp.host", "smtp.gmail.com");
             props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.port", 587);
             props.put("mail.smtp.starttls.enable", "true");
-
             // Create a new session with an authenticator
             Session ss = Session.getDefaultInstance(props, new Authenticator() {
                 @Override

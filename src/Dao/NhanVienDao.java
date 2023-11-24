@@ -18,9 +18,13 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     final String INSERT_SQL = "INSERT INTO NHANVIEN(MaNV,TenNV,NGAYSINH,SDT,GIOITINH,,MatKhau,EMAIL,GHICHU,VAITRO) VALUES (?,?,?,?,?,?,?,?)";
     final String UPDATE_SQL = "UPDATE NHANVIEN SET TenNV = ?, NGAYSINH = ?, SDT = ?, GIOITINH = ?, MatKhau = ?,EMAIL = ?, GHICHU = ?, VAITRO = ? WHERE MaNV = ?";
+    final String UPDATE_LayLaiMatKhau = "UPDATE NHANVIEN SET MatKhau = ? WHERE EMAIL = ?";
+
     final String DELETE_SQL = "DELETE FROM NHANVIEN WHERE MaNV = ?";
     final String SELECT_ALL_SQL = "SELECT * FROM NHANVIEN";
     final String SELECT_BY_ID_SQL = "SELECT * FROM NHANVIEN WHERE MaNV = ?";
+    
+    final String SELECT_BY_ID_EMAIL = "SELECT * FROM NHANVIEN WHERE EMAIL = ?";
 
     @Override
     public void insert(NhanVien entity) {
@@ -50,6 +54,13 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
                 entity.getMaNV());
     }
 
+    public void updateMatKhau(NhanVien entity) {
+        JdbcHelper.executeUpdate(UPDATE_LayLaiMatKhau,
+
+                entity.getMatKhau(),
+                entity.getEMAIL());
+    }
+
     @Override
     public void delete(String id) {
         JdbcHelper.executeUpdate(DELETE_SQL, id);
@@ -63,6 +74,13 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
     @Override
     public NhanVien selectById(String id) {
         List<NhanVien> list = selectBySql(SELECT_BY_ID_SQL, id);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
+    public NhanVien selectByEmail(String id) {
+        List<NhanVien> list = selectBySql(SELECT_BY_ID_EMAIL, id);
         if (list.isEmpty()) {
             return null;
         }

@@ -60,7 +60,6 @@ public class Login extends javax.swing.JFrame {
 
         panelBorder1.setBackground(new java.awt.Color(255, 204, 204));
 
-        txtTenDangNhap.setText("MyTY");
         txtTenDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenDangNhapActionPerformed(evt);
@@ -118,14 +117,14 @@ public class Login extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelBorder1Layout.createSequentialGroup()
+                                .addComponent(chkShowP, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(130, 130, 130)
+                                .addComponent(lblquenMK, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelBorder1Layout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelBorder1Layout.createSequentialGroup()
-                                .addComponent(chkShowP, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(130, 130, 130)
-                                .addComponent(lblquenMK, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         panelBorder1Layout.setVerticalGroup(
@@ -147,7 +146,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addGap(34, 34, 34))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -197,7 +196,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(menu_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -316,7 +315,7 @@ public class Login extends javax.swing.JFrame {
             //NhanVienDao override từ EduSysDao gồm các abstract insert, update,... trong đó có luôn selectById
             //selectById của NhanVienDAO để truy vấn NhanVien từ CSDL để nó lưu vào nhanVien
             NhanVien nv = dao.selectById(MANV);//tìm nhân viên theo mã nv
-
+   
             if (nv == null) { //Kiểm tra nhân viên có tồn tại không
 //            kiemTra();
                 MsgBox.showErrorDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Lỗi");
@@ -324,6 +323,9 @@ public class Login extends javax.swing.JFrame {
 //            kiemTra();
                 MsgBox.showErrorDialog(this, "Sai mật khẩu hoặc mật khẩu!", "Lỗi");
             } else {
+                
+                
+      
                 Auth.user = nv;
                 MsgBox.showMessageDialog(this, "Đăng nhập thành công !\nNgười dùng " + "'" + Auth.user.getMaNV() + "'");
                 Main main = new Main();
