@@ -24,12 +24,29 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     @Override
     public void insert(NhanVien entity) {
-        JdbcHelper.update(INSERT_SQL, entity.getMaNV(), entity.getTenNV(), entity.getNGAYSINH(), entity.getSDT(), entity.isGIOITINH(), entity.getEMAIL(), entity.getGHICHU(), entity.isVAITRO());
+        JdbcHelper.update(INSERT_SQL,
+                     entity.getMaNV(),
+                entity.getTenNV(),
+                entity.getNGAYSINH(),
+                entity.getSDT(),
+                entity.isGIOITINH(),
+                entity.getEMAIL(),
+                entity.getGHICHU(),
+                entity.isVAITRO());
+           
     }
 
     @Override
     public void update(NhanVien entity) {
-        JdbcHelper.update(UPDATE_SQL, entity.getTenNV(), entity.getNGAYSINH(), entity.getSDT(), entity.isGIOITINH(), entity.getEMAIL(), entity.getGHICHU(), entity.isVAITRO(), entity.getMaNV());
+        JdbcHelper.update(UPDATE_SQL,
+                entity.getTenNV(),
+                entity.getNGAYSINH(),
+                entity.getSDT(),
+                entity.isGIOITINH(),
+                entity.getEMAIL(),
+                entity.getGHICHU(),
+                entity.isVAITRO(),
+                entity.getMaNV());
     }
 
     @Override

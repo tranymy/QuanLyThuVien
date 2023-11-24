@@ -25,11 +25,19 @@ public class SachDao extends QLThuVienDao<Sach, String> {
     @Override
     public void insert(Sach entity) {
         JdbcHelper.update(INSERT_SQL, entity.getMaSACH(), entity.getTenSACH(), entity.getTacGIA(), entity.getNXB(), entity.getTHELOAI(), entity.getMOTA());
+
     }
 
     @Override
     public void update(Sach entity) {
-        JdbcHelper.update(UPDATE_SQL, entity.getTenSACH(), entity.getTacGIA(), entity.getNXB(), entity.getTHELOAI(), entity.getMOTA(), entity.getMaSACH());
+        JdbcHelper.update(INSERT_SQL,
+                entity.getTenSACH(),
+                entity.getTacGIA(),
+                entity.getNXB(),
+                entity.getTHELOAI(),
+                entity.getMOTA(),
+                entity.getMaSACH());
+
     }
 
     @Override

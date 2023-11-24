@@ -12,8 +12,8 @@ import java.sql.*;
  */
 public class JdbcHelper {
 
+public static Connection getconnecDb() {
 
-    public static Connection getconnecDb() {
 
 
         try {

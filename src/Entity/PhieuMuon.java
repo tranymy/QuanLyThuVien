@@ -4,6 +4,8 @@
  */
 package Entity;
 
+import java.util.Date;
+
 /**
  *
  * @author baomt
@@ -11,24 +13,22 @@ package Entity;
 public class PhieuMuon {
 
     private String MaPM;
-    private String NGAYTAO;
-    private String NGAYTRA;
+    private Date NGAYTAO;
+    private Date NGAYTRA;
     private boolean TRANGTHAI;
     private String MaNV;
     private String MaDG;
-    private String MaSACH;
 
     public PhieuMuon() {
     }
 
-    public PhieuMuon(String MaPM, String NGAYTAO, String NGAYTRA, boolean TRANGTHAI, String MaNV, String MaDG, String MaSACH) {
+    public PhieuMuon(String MaPM, Date NGAYTAO, Date NGAYTRA, boolean TRANGTHAI, String MaNV, String MaDG) {
         this.MaPM = MaPM;
         this.NGAYTAO = NGAYTAO;
         this.NGAYTRA = NGAYTRA;
         this.TRANGTHAI = TRANGTHAI;
         this.MaNV = MaNV;
         this.MaDG = MaDG;
-        this.MaSACH = MaSACH;
     }
 
     public String getMaPM() {
@@ -39,19 +39,19 @@ public class PhieuMuon {
         this.MaPM = MaPM;
     }
 
-    public String getNGAYTAO() {
+    public Date getNGAYTAO() {
         return NGAYTAO;
     }
 
-    public void setNGAYTAO(String NGAYTAO) {
+    public void setNGAYTAO(Date NGAYTAO) {
         this.NGAYTAO = NGAYTAO;
     }
 
-    public String getNGAYTRA() {
+    public Date getNGAYTRA() {
         return NGAYTRA;
     }
 
-    public void setNGAYTRA(String NGAYTRA) {
+    public void setNGAYTRA(Date NGAYTRA) {
         this.NGAYTRA = NGAYTRA;
     }
 
@@ -77,14 +77,6 @@ public class PhieuMuon {
 
     public void setMaDG(String MaDG) {
         this.MaDG = MaDG;
-    }
-
-    public String getMaSACH() {
-        return MaSACH;
-    }
-
-    public void setMaSACH(String MaSACH) {
-        this.MaSACH = MaSACH;
     }
 
     

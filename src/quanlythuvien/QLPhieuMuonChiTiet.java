@@ -4,17 +4,14 @@
  */
 package quanlythuvien;
 
-
-import Dao.PhieuMuonDao;
-import Entity.NhanVien;
-import Entity.PhieuMuon;
+import Dao.PhieuMuonCTDao;
+import Entity.PhieuMuonCT;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
@@ -25,19 +22,20 @@ import utils.XDate;
  *
  * @author duyvo
  */
-public class QLPhieuMuon extends javax.swing.JFrame {
+public class QLPhieuMuonChiTiet extends javax.swing.JFrame {
 
-    PhieuMuonDao pmdao = new PhieuMuonDao();
+    PhieuMuonCTDao pmctdao = new PhieuMuonCTDao();
     int row = 0;
 
     /**
      * Creates new form QLNhanVien
      */
-    public QLPhieuMuon() {
+    public QLPhieuMuonChiTiet() {
         initComponents();
         this.setLocationRelativeTo(null);
         init();
         tblPhieuMuon.setDefaultEditor(Object.class, null);
+
     }
 
     /**
@@ -52,16 +50,16 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         TrangThai = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         header = new component.menu_1();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        QUANLIPHIEUMUON = new javax.swing.JLabel();
+        lblQLSach = new javax.swing.JLabel();
+        lblQLNhanVien = new javax.swing.JLabel();
+        lblQLDocGia = new javax.swing.JLabel();
+        lblThongKe = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         footer = new component.menu_1();
         lblDongHo = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lblGioiThieu = new javax.swing.JLabel();
+        lblHoTro = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         menu_011 = new component.menu_01();
         myButton1 = new button.MyButton();
@@ -75,78 +73,112 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtNgayTra = new button.textfield.TextField();
-        txtMaNV = new button.textfield.TextField();
+        txtGhiChu = new button.textfield.TextField();
+        txtTongTien = new button.textfield.TextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtMaPM = new button.textfield.TextField();
         jLabel10 = new javax.swing.JLabel();
-        txtNgayTao = new button.textfield.TextField();
-        jLabel11 = new javax.swing.JLabel();
-        rdoChuaTra = new javax.swing.JRadioButton();
-        rdoDaTra = new javax.swing.JRadioButton();
-        jLabel12 = new javax.swing.JLabel();
-        txtGhiChu = new button.textfield.TextField();
+        txtSoLuongSach = new button.textfield.TextField();
         jLabel13 = new javax.swing.JLabel();
-        txtMaDocGia = new button.JPassword.PasswordField();
-        jLabel14 = new javax.swing.JLabel();
-        txtMaSach = new button.textfield.TextField();
+        txtMaSach = new button.JPassword.PasswordField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPhieuMuon = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Quản lí phiếu mượn");
-
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Quản lí sách");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        QUANLIPHIEUMUON.setBackground(new java.awt.Color(102, 102, 102));
+        QUANLIPHIEUMUON.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        QUANLIPHIEUMUON.setForeground(new java.awt.Color(255, 255, 255));
+        QUANLIPHIEUMUON.setText("Quản lí phiếu mượn");
+        QUANLIPHIEUMUON.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                QUANLIPHIEUMUONMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                QUANLIPHIEUMUONMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                QUANLIPHIEUMUONMouseExited(evt);
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Quản lí nhân viên");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblQLSach.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLSach.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLSach.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLSach.setText("Quản lí sách");
+        lblQLSach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lblQLSachMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLSachMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLSachMouseExited(evt);
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Quản lí độc giả");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblQLNhanVien.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLNhanVien.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLNhanVien.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLNhanVien.setText("Quản lí nhân viên");
+        lblQLNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lblQLNhanVienMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLNhanVienMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLNhanVienMouseExited(evt);
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Báo cáo thống kê");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblQLDocGia.setBackground(new java.awt.Color(204, 204, 204));
+        lblQLDocGia.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblQLDocGia.setForeground(new java.awt.Color(255, 255, 255));
+        lblQLDocGia.setText("Quản lí độc giả");
+        lblQLDocGia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                lblQLDocGiaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblQLDocGiaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblQLDocGiaMouseExited(evt);
+            }
+        });
+
+        lblThongKe.setBackground(new java.awt.Color(204, 204, 204));
+        lblThongKe.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
+        lblThongKe.setForeground(new java.awt.Color(255, 255, 255));
+        lblThongKe.setText("Báo cáo thống kê");
+        lblThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblThongKeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblThongKeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblThongKeMouseExited(evt);
             }
         });
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 3, 14)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/home-regular-24.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
@@ -154,15 +186,15 @@ public class QLPhieuMuon extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1)
+                .addComponent(QUANLIPHIEUMUON)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblQLSach)
                 .addGap(48, 48, 48)
-                .addComponent(jLabel4)
+                .addComponent(lblQLDocGia)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel3)
+                .addComponent(lblQLNhanVien)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel5)
+                .addComponent(lblThongKe)
                 .addGap(46, 46, 46)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -172,28 +204,44 @@ public class QLPhieuMuon extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(QUANLIPHIEUMUON)
                     .addComponent(jLabel6)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
+                            .addComponent(lblThongKe)
+                            .addComponent(lblQLNhanVien)
+                            .addComponent(lblQLDocGia)
+                            .addComponent(lblQLSach))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblDongHo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDongHo.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Giới thiệu");
+        lblGioiThieu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblGioiThieu.setForeground(new java.awt.Color(255, 255, 255));
+        lblGioiThieu.setText("Giới thiệu");
+        lblGioiThieu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblGioiThieuMouseExited(evt);
+            }
+        });
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Giới thiệu");
+        lblHoTro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHoTro.setForeground(new java.awt.Color(255, 255, 255));
+        lblHoTro.setText("Hỗ trợ");
+        lblHoTro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHoTroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHoTroMouseExited(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("|");
@@ -204,9 +252,9 @@ public class QLPhieuMuon extends javax.swing.JFrame {
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footerLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel15)
+                .addComponent(lblGioiThieu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
+                .addComponent(lblHoTro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
@@ -220,8 +268,8 @@ public class QLPhieuMuon extends javax.swing.JFrame {
                 .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDongHo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel16)
+                        .addComponent(lblGioiThieu)
+                        .addComponent(lblHoTro)
                         .addComponent(jLabel17)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -297,7 +345,7 @@ public class QLPhieuMuon extends javax.swing.JFrame {
             .addGroup(menu_011Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu_011Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(myButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(myButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                     .addComponent(myButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(myButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(myButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -333,193 +381,69 @@ public class QLPhieuMuon extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
         jLabel7.setText("Mã phiếu mượn:");
-
-        txtNgayTra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNgayTraActionPerformed(evt);
-            }
-        });
-
-        txtMaNV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaNVActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel8.setText("Ngày tạo:");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel9.setText("Ngày trả:");
-
-        txtMaPM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaPMActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel10.setText("Mã nhân viên:");
-
-        txtNgayTao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNgayTaoActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel11.setText("Trạng thái:");
-
-        TrangThai.add(rdoChuaTra);
-        rdoChuaTra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rdoChuaTra.setText("Chưa trả");
-
-        TrangThai.add(rdoDaTra);
-        rdoDaTra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        rdoDaTra.setText("Đã trả");
-        rdoDaTra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoDaTraActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel12.setText("Ghi chú:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         txtGhiChu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGhiChuActionPerformed(evt);
             }
         });
+        jPanel2.add(txtGhiChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 300, 120));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel13.setText("Mã đọc giả:");
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
-        jLabel14.setText("Mã sách:");
-
-        txtMaSach.addActionListener(new java.awt.event.ActionListener() {
+        txtTongTien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaSachActionPerformed(evt);
+                txtTongTienActionPerformed(evt);
             }
         });
+        jPanel2.add(txtTongTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 260, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(txtMaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113)
-                        .addComponent(txtMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(391, 391, 391)
-                            .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                    .addGap(19, 19, 19)
-                                    .addComponent(txtMaPM, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(75, 75, 75))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(1, 1, 1)
-                                            .addComponent(jLabel11))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(1, 1, 1)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel12)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGap(39, 39, 39)
-                                            .addComponent(rdoDaTra, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(16, 16, 16)
-                                            .addComponent(rdoChuaTra)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel14)
-                                .addComponent(jLabel13)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel8)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGap(38, 38, 38)
-                                    .addComponent(txtNgayTra, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(197, 197, 197))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(6, 6, 6)
-                        .addComponent(txtMaPM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel11)
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rdoDaTra, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rdoChuaTra, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel10)
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel12))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNgayTao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel9)
-                        .addGap(8, 8, 8)
-                        .addComponent(txtNgayTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel14)))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
+        jLabel8.setText("Số lượng sách:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
+        jLabel9.setText("Ghi chú:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+
+        txtMaPM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaPMActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtMaPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 259, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
+        jLabel10.setText("Tổng tiền:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 120, -1));
+
+        txtSoLuongSach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSoLuongSachActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtSoLuongSach, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 120, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 3, 18)); // NOI18N
+        jLabel13.setText("Mã sách:");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jPanel2.add(txtMaSach, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 260, -1));
 
         jTabbedPane1.addTab("Phiếu mượn", jPanel2);
 
         tblPhieuMuon.setBackground(new java.awt.Color(255, 204, 204));
         tblPhieuMuon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-
-                // "Mã phiếu mượn", "Ngày tạo", "Mã nhân viên", "Trạng thái", "Ngày trả", "Mã sách", "Mã đọc giả", "Ghi chú"
-
-                "Mã phiếu mượn", "Ngày tạo", "Ngày trả", "Trạng thái", "Mã nhân viên", "Mã đọc giả"
-
+                "Mã phiếu mượn", "Số lượng sách", "Tổng tiền", "Ghi chú", "Mã Sách"
             }
         ));
         tblPhieuMuon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -533,13 +457,13 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Danh sách", jPanel3);
@@ -548,16 +472,12 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(footer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(menu_011, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTabbedPane1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(menu_011, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1))
+            .addComponent(footer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,97 +488,170 @@ public class QLPhieuMuon extends javax.swing.JFrame {
                     .addComponent(menu_011, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNgayTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTraActionPerformed
+    private void txtGhiChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGhiChuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgayTraActionPerformed
+    }//GEN-LAST:event_txtGhiChuActionPerformed
 
-    private void txtMaNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaNVActionPerformed
+    private void txtTongTienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTongTienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaNVActionPerformed
+    }//GEN-LAST:event_txtTongTienActionPerformed
 
     private void txtMaPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaPMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaPMActionPerformed
 
-    private void txtNgayTaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayTaoActionPerformed
+    private void txtSoLuongSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSoLuongSachActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgayTaoActionPerformed
+    }//GEN-LAST:event_txtSoLuongSachActionPerformed
 
-    private void txtGhiChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGhiChuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGhiChuActionPerformed
-
-    private void txtMaSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaSachActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaSachActionPerformed
-
-    private void rdoDaTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoDaTraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdoDaTraActionPerformed
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblQLSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLSachMouseClicked
         // TODO add your handling code here:
         QLSach main = new QLSach();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblQLSachMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void lblQLDocGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseClicked
         // TODO add your handling code here:
         QLDocGia main = new QLDocGia();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lblQLDocGiaMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lblQLNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseClicked
         // TODO add your handling code here:
         QLNhanVien main = new QLNhanVien();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lblQLNhanVienMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void lblThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseClicked
         // TODO add your handling code here:
-          ThongKe main = new ThongKe();
+        ThongKe main = new ThongKe();
         main.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_lblThongKeMouseClicked
 
-    private void tblPhieuMuonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuMuonMousePressed
-       if (evt.getClickCount() == 2) {
-            this.row = tblPhieuMuon.getSelectedRow();
-            this.edit();
-        }
-    }//GEN-LAST:event_tblPhieuMuonMousePressed
+    private void QUANLIPHIEUMUONMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUANLIPHIEUMUONMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_QUANLIPHIEUMUONMouseClicked
+
+    private void QUANLIPHIEUMUONMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUANLIPHIEUMUONMouseEntered
+        // TODO add your handling code here:
+        QUANLIPHIEUMUON.setForeground(new Color(255, 255, 0));
+
+
+    }//GEN-LAST:event_QUANLIPHIEUMUONMouseEntered
+
+    private void lblQLSachMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLSachMouseEntered
+        // TODO add your handling code here:       
+        lblQLSach.setForeground(new Color(255, 255, 0));
+
+
+    }//GEN-LAST:event_lblQLSachMouseEntered
+
+    private void QUANLIPHIEUMUONMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUANLIPHIEUMUONMouseExited
+        // TODO add your handling code here:
+        QUANLIPHIEUMUON.setForeground(new Color(242, 242, 242));
+    }//GEN-LAST:event_QUANLIPHIEUMUONMouseExited
+
+    private void lblQLSachMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLSachMouseExited
+        // TODO add your handling code here:
+        lblQLSach.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLSachMouseExited
+
+    private void lblQLDocGiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseEntered
+        // TODO add your handling code here:
+        lblQLDocGia.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblQLDocGiaMouseEntered
+
+    private void lblQLDocGiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLDocGiaMouseExited
+        // TODO add your handling code here:
+        lblQLDocGia.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLDocGiaMouseExited
+
+    private void lblQLNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseEntered
+        // TODO add your handling code here:
+        lblQLNhanVien.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblQLNhanVienMouseEntered
+
+    private void lblQLNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQLNhanVienMouseExited
+        // TODO add your handling code here:
+        lblQLNhanVien.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblQLNhanVienMouseExited
+
+    private void lblThongKeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseEntered
+        // TODO add your handling code here:
+        lblThongKe.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblThongKeMouseEntered
+
+    private void lblThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblThongKeMouseExited
+        // TODO add your handling code here:
+        lblThongKe.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblThongKeMouseExited
+
+    private void lblHoTroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoTroMouseEntered
+        // TODO add your handling code here:
+        lblHoTro.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblHoTroMouseEntered
+
+    private void lblHoTroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHoTroMouseExited
+        // TODO add your handling code here:
+        lblHoTro.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblHoTroMouseExited
+
+    private void lblGioiThieuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseEntered
+        // TODO add your handling code here:
+        lblGioiThieu.setForeground(new Color(255, 255, 0));
+
+    }//GEN-LAST:event_lblGioiThieuMouseEntered
+
+    private void lblGioiThieuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGioiThieuMouseExited
+        // TODO add your handling code here:
+        lblGioiThieu.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_lblGioiThieuMouseExited
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        Main main = new Main();
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
         insert();
     }//GEN-LAST:event_myButton1ActionPerformed
 
     private void myButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton3ActionPerformed
-        update();
+       update();
     }//GEN-LAST:event_myButton3ActionPerformed
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
@@ -666,11 +659,11 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     }//GEN-LAST:event_myButton2ActionPerformed
 
     private void myButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton4ActionPerformed
-        clearForm();
+      clearForm();
     }//GEN-LAST:event_myButton4ActionPerformed
 
     private void myButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton5ActionPerformed
-      next();
+       next();
     }//GEN-LAST:event_myButton5ActionPerformed
 
     private void myButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton6ActionPerformed
@@ -682,8 +675,15 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     }//GEN-LAST:event_myButton7ActionPerformed
 
     private void myButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton8ActionPerformed
-       prev();
+        prev();
     }//GEN-LAST:event_myButton8ActionPerformed
+
+    private void tblPhieuMuonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPhieuMuonMousePressed
+       if (evt.getClickCount() == 2) {
+            this.row = tblPhieuMuon.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblPhieuMuonMousePressed
 
     /**
      * @param args the command line arguments
@@ -707,46 +707,45 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tblPhieuMuon.getModel();
         model.setRowCount(0);
         try {
-            List<PhieuMuon> list = pmdao.selectAll();
-            for (PhieuMuon pm : list) {
+            List<PhieuMuonCT> list = pmctdao.selectAll();
+            for (PhieuMuonCT pm : list) {
                 Object[] row = {
                     pm.getMaPM(),
-                    XDate.toString(pm.getNGAYTAO()),
-                    XDate.toString(pm.getNGAYTRA()),
-                    pm.isTRANGTHAI() ? "Đã Trả" : "Chưa Trả",
-                    pm.getMaNV(),
-                    pm.getMaDG(),};
+                    pm.getSoLuong(),
+                    pm.getTongTien(),
+                    pm.getGhiChu(),
+                    pm.getMaSach(),};
                 model.addRow(row);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu phiếu mượn!");
+            JOptionPane.showMessageDialog(this, "Lỗi truy vấn dữ liệu phiếu mượn chi tiết!");
             e.printStackTrace();
         }
     }
 
     private void insert() {
-        PhieuMuon pm = this.getForm();
+        PhieuMuonCT pm = this.getForm();
         try {
-            pmdao.insert(pm); // thêm mới
+            pmctdao.insert(pm); // thêm mới
             this.fillTable(); // đỗ lại bảng
             this.clearForm(); // xóa trắng form
-            JOptionPane.showMessageDialog(this, "Thêm phiếu mượn mới thành công!");
+            JOptionPane.showMessageDialog(this, "Thêm phiếu mượn chi tiết mới thành công!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Thêm phiếu mượn mới thất bại!");
+            JOptionPane.showMessageDialog(this, "Thêm phiếu mượn chi tiết mới thất bại!");
             e.printStackTrace();
 
         }
     }
 
     private void update() {
-        PhieuMuon pm = this.getForm();
+        PhieuMuonCT pm = this.getForm();
 
         try {
-            pmdao.update(pm); // cập nhật
+            pmctdao.update(pm); // cập nhật
             this.fillTable(); // đổ lại bảng
-            JOptionPane.showMessageDialog(this, "Cập nhật phiếu mượn thành công!");
+            JOptionPane.showMessageDialog(this, "Cập nhật phiếu mượn chi tiết thành công!");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cập nhật phiếu mượn thất bại!");
+            JOptionPane.showMessageDialog(this, "Cập nhật phiếu mượn chi tiết thất bại!");
             e.printStackTrace();
         }
 
@@ -755,14 +754,14 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     private void delete() {
 
         String mapm = txtMaPM.getText();
-        if (MsgBox.confirm(this, "Bạn có thực sự muốn xóa phiếu mượn này không?")) {
+        if (MsgBox.confirm(this, "Bạn có thực sự muốn xóa phiếu mượn chi tiết này không?")) {
             try {
-                pmdao.delete(mapm);
+                pmctdao.delete(mapm);
                 this.fillTable();
                 this.clearForm();
-                MsgBox.alert(this, "Xóa phiếu mượn thành công!");
+                MsgBox.alert(this, "Xóa phiếu mượn chi tiết thành công!");
             } catch (Exception e) {
-                MsgBox.alert(this, "Xóa phiếu mượn thất bại!");
+                MsgBox.alert(this, "Xóa phiếu mượn chi tiết thất bại!");
                 e.printStackTrace();
             }
         }
@@ -770,8 +769,8 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     }
 
     private void clearForm() {
-        PhieuMuon pm = new PhieuMuon();
-        this.setForm2(pm);
+        PhieuMuonCT pm = new PhieuMuonCT();
+        this.setForm(pm);
         this.row = -1;
 //        this.updateStatus();
     }
@@ -779,7 +778,7 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     private void edit() {
         try {
             String mapm = (String) tblPhieuMuon.getValueAt(this.row, 0);
-            PhieuMuon pm = pmdao.selectById(mapm);
+            PhieuMuonCT pm = pmctdao.selectById(mapm);
             if (pm != null) {
                 this.setForm(pm);
                 jTabbedPane1.setSelectedIndex(0);
@@ -790,34 +789,23 @@ public class QLPhieuMuon extends javax.swing.JFrame {
         }
     }
 
-    private void setForm2(PhieuMuon pm) {
+    private void setForm(PhieuMuonCT pm) {
         txtMaPM.setText(pm.getMaPM());
-        txtNgayTao.setText(XDate.toString(pm.getNGAYTAO()));
-        txtNgayTra.setText(XDate.toString(pm.getNGAYTRA()));
-        TrangThai.clearSelection();
-        txtMaNV.setText(pm.getMaNV());
-        txtMaDocGia.setText(pm.getMaDG());
+               txtSoLuongSach.setText(String.valueOf(pm.getSoLuong()));
+        txtTongTien.setText(Double.toString(pm.getTongTien()));
+        txtGhiChu.setText(pm.getGhiChu());
+        txtMaSach.setText(pm.getMaSach());
+
 
     }
 
-     private void setForm(PhieuMuon pm) {
-        txtMaPM.setText(pm.getMaPM());
-        txtNgayTao.setText(XDate.toString(pm.getNGAYTAO()));
-        txtNgayTra.setText(XDate.toString(pm.getNGAYTRA()));
-        rdoDaTra.setSelected(pm.isTRANGTHAI());
-        rdoChuaTra.setSelected(!pm.isTRANGTHAI());
-        txtMaNV.setText(pm.getMaNV());
-        txtMaDocGia.setText(pm.getMaDG());
-
-    }
-    private PhieuMuon getForm() {
-        PhieuMuon pm = new PhieuMuon();
+    private PhieuMuonCT getForm() {
+        PhieuMuonCT pm = new PhieuMuonCT();
         pm.setMaPM(txtMaPM.getText());
-        pm.setNGAYTAO(XDate.toDate(txtNgayTao.getText()));
-        pm.setNGAYTRA(XDate.toDate(txtNgayTra.getText()));
-        pm.setTRANGTHAI(rdoDaTra.isSelected());
-        pm.setMaNV(txtMaNV.getText());
-        pm.setMaDG(txtMaDocGia.getText());
+        pm.setSoLuong(Integer.parseInt(txtSoLuongSach.getText()));
+        pm.setTongTien(Double.parseDouble(txtTongTien.getText()));
+        pm.setGhiChu(txtGhiChu.getText());
+        pm.setMaSach(txtMaSach.getText());
 
         return pm;
     }
@@ -876,43 +864,36 @@ public class QLPhieuMuon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QLPhieuMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QLPhieuMuonChiTiet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QLPhieuMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QLPhieuMuonChiTiet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QLPhieuMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QLPhieuMuonChiTiet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QLPhieuMuon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QLPhieuMuonChiTiet.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QLPhieuMuon().setVisible(true);
+                new QLPhieuMuonChiTiet().setVisible(true);
             }
         });
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel QUANLIPHIEUMUON;
     private javax.swing.ButtonGroup TrangThai;
     private component.menu_1 footer;
     private component.menu_1 header;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -923,6 +904,12 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblDongHo;
+    private javax.swing.JLabel lblGioiThieu;
+    private javax.swing.JLabel lblHoTro;
+    private javax.swing.JLabel lblQLDocGia;
+    private javax.swing.JLabel lblQLNhanVien;
+    private javax.swing.JLabel lblQLSach;
+    private javax.swing.JLabel lblThongKe;
     private component.menu_01 menu_011;
     private button.MyButton myButton1;
     private button.MyButton myButton2;
@@ -932,15 +919,11 @@ public class QLPhieuMuon extends javax.swing.JFrame {
     private button.MyButton myButton6;
     private button.MyButton myButton7;
     private button.MyButton myButton8;
-    private javax.swing.JRadioButton rdoChuaTra;
-    private javax.swing.JRadioButton rdoDaTra;
     private javax.swing.JTable tblPhieuMuon;
     private button.textfield.TextField txtGhiChu;
-    private button.JPassword.PasswordField txtMaDocGia;
-    private button.textfield.TextField txtMaNV;
     private button.textfield.TextField txtMaPM;
-    private button.textfield.TextField txtMaSach;
-    private button.textfield.TextField txtNgayTao;
-    private button.textfield.TextField txtNgayTra;
+    private button.JPassword.PasswordField txtMaSach;
+    private button.textfield.TextField txtSoLuongSach;
+    private button.textfield.TextField txtTongTien;
     // End of variables declaration//GEN-END:variables
 }
