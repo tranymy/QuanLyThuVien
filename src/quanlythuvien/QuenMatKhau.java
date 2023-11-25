@@ -327,10 +327,10 @@ public class QuenMatKhau extends javax.swing.JFrame {
 
         String email = txtEmail.getText();
         NhanVien nv = dao.selectByEmail(email);
-        //MsgBox.showMessageDialog(this,nv.getEMAIL());         
+        MsgBox.showMessageDialog(this,nv.getEMAIL());         
         xacNhanOTP();
         Auth_02.Email = nv;
-        //MsgBox.showMessageDialog(this, "Đăng nhập thành công !\nNgười dùng " + "'" + Auth_02.Email.getEMAIL()+ "'");
+        MsgBox.showMessageDialog(this, "Đăng nhập thành công !\nNgười dùng " + "'" + Auth_02.Email.getEMAIL()+ "'");
         LayLaiMatKhau llmk = new LayLaiMatKhau();
         llmk.setVisible(true);
         this.dispose();

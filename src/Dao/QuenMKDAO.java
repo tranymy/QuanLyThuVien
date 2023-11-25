@@ -61,7 +61,7 @@ public class QuenMKDAO {
     }
 
     public void update(String key) {
-        JdbcHelper.executeUpdate(UPDATE_PASSWORD_SQL, newPass, key);
+        JdbcHelper.update(UPDATE_PASSWORD_SQL, newPass, key);
     }
 
     public void sendmail(String email, Object... args) {
@@ -82,7 +82,7 @@ public class QuenMKDAO {
                     return new PasswordAuthentication(fmail, fpass);
                 }
             });
-            rs = JdbcHelper.executeQuery(SELECT_EMAIL_SQL, email);
+            rs = JdbcHelper.query(SELECT_EMAIL_SQL, email);
             try {
                 while (rs.next()) {
                     // Create a new email message

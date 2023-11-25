@@ -28,7 +28,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     @Override
     public void insert(NhanVien entity) {
-        JdbcHelper.executeUpdate(INSERT_SQL,
+        JdbcHelper.update(INSERT_SQL,
                 entity.getTenNV(),
                 entity.getNGAYSINH(),
                 entity.getSDT(),
@@ -42,7 +42,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     @Override
     public void update(NhanVien entity) {
-        JdbcHelper.executeUpdate(UPDATE_SQL,
+        JdbcHelper.update(UPDATE_SQL,
                 entity.getTenNV(),
                 entity.getNGAYSINH(),
                 entity.getSDT(),
@@ -55,7 +55,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
     }
 
     public void updateMatKhau(NhanVien entity) {
-        JdbcHelper.executeUpdate(UPDATE_LayLaiMatKhau,
+        JdbcHelper.update(UPDATE_LayLaiMatKhau,
 
                 entity.getMatKhau(),
                 entity.getEMAIL());
@@ -63,7 +63,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
 
     @Override
     public void delete(String id) {
-        JdbcHelper.executeUpdate(DELETE_SQL, id);
+        JdbcHelper.update(DELETE_SQL, id);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class NhanVienDao extends QLThuVienDao<NhanVien, String> {
     protected List<NhanVien> selectBySql(String sql, Object... args) {
         List<NhanVien> list = new ArrayList<>();
         try {
-            ResultSet rs = JdbcHelper.executeQuery(sql, args);
+            ResultSet rs = JdbcHelper.query(sql, args);
             while (rs.next()) {
                 NhanVien entity = new NhanVien();
                 entity.setMaNV(rs.getString("MaNV"));
