@@ -8,6 +8,7 @@ import utils.XDate;
 import Entity.NhanVien;
 import utils.MsgBox;
 import Dao.NhanVienDao;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import utils.Auth;
 
@@ -151,6 +152,14 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Đăng nhập");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_11Layout = new javax.swing.GroupLayout(menu_11);
         menu_11.setLayout(menu_11Layout);
@@ -234,6 +243,19 @@ public class Login extends javax.swing.JFrame {
         qmk.setVisible(rootPaneCheckingEnabled);
         dispose();
     }//GEN-LAST:event_lblquenMKMouseClicked
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+        jLabel3.setForeground(new Color(255, 255, 0));
+
+
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+        jLabel3.setForeground(new Color(242, 242, 242));
+
+    }//GEN-LAST:event_jLabel3MouseExited
 
     /**
      * @param args the command line arguments

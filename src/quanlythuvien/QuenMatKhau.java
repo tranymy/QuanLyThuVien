@@ -326,6 +326,7 @@ public class QuenMatKhau extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         String email = txtEmail.getText();
+        System.out.println(email);
         NhanVien nv = dao.selectByEmail(email);
         MsgBox.showMessageDialog(this,nv.getEMAIL());         
         xacNhanOTP();
@@ -433,6 +434,8 @@ public class QuenMatKhau extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(QuenMatKhau.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
