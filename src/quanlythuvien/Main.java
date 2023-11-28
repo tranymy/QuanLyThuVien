@@ -129,6 +129,7 @@ public class Main extends javax.swing.JFrame {
         setUndecorated(true);
 
         panelBorder1.setBackground(new java.awt.Color(255, 204, 204));
+        panelBorder1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         body.setLayout(new java.awt.BorderLayout());
 
@@ -191,11 +192,12 @@ public class Main extends javax.swing.JFrame {
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(footerLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGioiThieu)
-                    .addComponent(lblHoTro)
-                    .addComponent(jLabel17)
-                    .addComponent(lblDongHo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDongHo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblGioiThieu)
+                        .addComponent(lblHoTro)
+                        .addComponent(jLabel17)))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 

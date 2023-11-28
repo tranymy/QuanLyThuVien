@@ -89,6 +89,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         QLNhanVIen.setBackground(new java.awt.Color(102, 102, 102));
         QLNhanVIen.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N

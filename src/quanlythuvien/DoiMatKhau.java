@@ -53,6 +53,7 @@ public class DoiMatKhau extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         panelBorder1.setBackground(new java.awt.Color(255, 204, 204));
 

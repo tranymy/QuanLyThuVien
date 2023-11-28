@@ -13,8 +13,8 @@ import java.sql.*;
 public class JdbcHelper {
 
     public static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=QUANLYTHUVIEN;encrypt=true;trustServerCertificate=true;";
-    public static String username = "sa";
+    public static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=QUANLYTHUVIEN1;encrypt=true;trustServerCertificate=true;";
+    public static String username = "QLTHUVIEN";
     public static String password = "123";
 
     static {
